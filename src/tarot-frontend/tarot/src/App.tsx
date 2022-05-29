@@ -25,7 +25,7 @@ function App() {
 
   return (
       <div className="App text-center">
-        <h1 className="display-4">Welcome to AI Tarot Readings!</h1>
+        <h1 className="a-h1">Welcome to AI Tarot Readings!</h1>
 
         <button className="Career" onClick={handleCareer}> Career </button>
 

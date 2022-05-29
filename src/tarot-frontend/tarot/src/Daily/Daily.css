@@ -1,0 +1,33 @@
+.DailyPage {
+text-align: center;
+height: 100vh;
+background-color: Thistle;
+}
+
+.dp-h1 {
+text-align: center;
+background-color: RebeccaPurple;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 130px;
+}
+
+.LinearDay {
+margin: auto;
+background-color: DarkSlateBlue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.LinearDay:hover {
+background-color: MediumSlateBlue;
+  color: white;
+}
