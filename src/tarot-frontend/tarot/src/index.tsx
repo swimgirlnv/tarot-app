@@ -18,6 +18,7 @@ import { BrowserRouter as Router,
  import Daily from './routes/Daily';
 
  import ShootingForward from './routes/ShootingForward';
+ import LinearDay from './routes/LinearDay';
 
 
 const root = ReactDOM.createRoot(
@@ -35,6 +36,7 @@ root.render(
                       <Route path="shootingForward" element={<ShootingForward /> } />
            <Route path="spiritual" element={<Spiritual />} />
            <Route path="daily" element={<Daily />} />
+                      <Route path="linearDay" element={<LinearDay />} />
          </Routes>
      </Router>
 </React.StrictMode>

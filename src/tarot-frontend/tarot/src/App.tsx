@@ -2,7 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useNavigate } from "react-router-dom";
-import CardShuffle from './CardShuffle';
 import CardOfTheDay from './CardOfTheDay';
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
 
         <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
 
-        <CardShuffle />
       </div>
   )
 }

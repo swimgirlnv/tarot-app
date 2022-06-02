@@ -1,0 +1,5 @@
+edu/brown/cs/student/main/Main.class
+client/ClientRequestGenerator.class
+client/ClientAuthenticator.class
+backendcruding/Database.class
+client/ApiClient.class

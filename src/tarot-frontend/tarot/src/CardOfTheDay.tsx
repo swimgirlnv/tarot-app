@@ -2,6 +2,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 // @ts-ignore
 import axios from "axios";
+import './CardOfTheDay.css';
 
 // @ts-ignore
 export const AppContext = createContext();
@@ -11,8 +12,8 @@ function CardOfTheDay() {
 
   const [cardID, setCardID] = useState("")
   const [cardName, setCardName] = useState("")
-  const [cardUpright, setCardUpright] = useState("")
-  const [cardReverse, setCardReverse] = useState("")
+  const [cardUpright, setCardUpright] = useState("?")
+  const [cardReverse, setCardReverse] = useState("?")
   const [cardImage, setCardImage] = useState("https://i.imgur.com/WeMKa8I.png")
 
   const config = {
@@ -75,10 +76,12 @@ axios.get("http://localhost:4567/getCardReverse/" + cardID, config)
 }
   return (
     <div className="CardOfTheDay">
-          <button className="CotD" onClick={handleCotD}> Card of the Day </button>
-          <img src={cardImage} width="400" height="400" />
+          <img src={cardImage} width="350" height="500" />
+          <p />
           <p>Upright: {cardUpright} </p>
           <p>Reverse: {cardReverse} </p>
+          <button className="CotD" onClick={handleCotD}> Card of the Day </button>
+          <p />
     </div>
   );
 }

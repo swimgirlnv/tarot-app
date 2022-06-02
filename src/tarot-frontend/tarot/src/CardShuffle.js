@@ -9,8 +9,8 @@ export default function CardShuffle() {
   );
 }
 
-const BASE_URL = "https://deckofcardsapi.com/api/deck/";
-
+const BASE_URL = "http://localhost:4567/getCard";
+//https://deckofcardsapi.com/api/deck/
 class Deck extends React.Component {
   constructor(props) {
     super(props);
