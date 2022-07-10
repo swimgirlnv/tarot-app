@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import '../Career/Career.css';
 
 function Career(props: any){
 
@@ -12,7 +12,7 @@ const handleShootingForward = () => {
 
 return (
     <div className="CareerPage text-center">
-      <h1 className="display-4">Career Spreads</h1>
+      <h1 className="cp-h1">Career Spreads</h1>
 
       <button className="ShootingForward" onClick={handleShootingForward}> Shooting Forward </button>
 

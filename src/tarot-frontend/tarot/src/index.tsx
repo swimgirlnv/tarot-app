@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { CookiesProvider } from 'react-cookie';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -18,6 +19,7 @@ import { BrowserRouter as Router,
  import Daily from './routes/Daily';
 
  import ShootingForward from './routes/ShootingForward';
+ import LinearDay from './routes/LinearDay';
 
 
 const root = ReactDOM.createRoot(
@@ -35,6 +37,7 @@ root.render(
                       <Route path="shootingForward" element={<ShootingForward /> } />
            <Route path="spiritual" element={<Spiritual />} />
            <Route path="daily" element={<Daily />} />
+                      <Route path="linearDay" element={<LinearDay />} />
          </Routes>
      </Router>
 </React.StrictMode>
