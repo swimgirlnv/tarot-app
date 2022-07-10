@@ -2,4 +2,5 @@ edu/brown/cs/student/main/Main.class
 client/ClientRequestGenerator.class
 client/ClientAuthenticator.class
 backendcruding/Database.class
+client/FortuneTeller.class
 client/ApiClient.class

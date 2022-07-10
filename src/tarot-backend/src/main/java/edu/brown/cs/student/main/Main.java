@@ -1,6 +1,7 @@
 package edu.brown.cs.student.main;
 
 import backendcruding.Database;
+import client.FortuneTeller;
 import com.google.gson.Gson;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -74,6 +75,7 @@ public final class Main {
 
     Spark.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
     Gson gson = new Gson();
+    FortuneTeller fortuneTeller = new FortuneTeller();
     // Put Routes Here
     db = new Database("data/tarot.sqlite3");
 
@@ -99,6 +101,13 @@ public final class Main {
     Spark.get("/getCardImage/:n", (req, res) -> {
       String cardID = req.params(":n");
       return gson.toJson(db.getCardImage(cardID));
+    });
+
+    Spark.get("/getReading/:morning/:afternoon/:evening", (req, res) -> {
+      String morning = req.params(":morning");
+      String afternoon = req.params(":afternoon");
+      String evening = req.params(":evening");
+      return gson.toJson(fortuneTeller.DailyInterpreter(morning, afternoon, evening));
     });
 
     Spark.init();
