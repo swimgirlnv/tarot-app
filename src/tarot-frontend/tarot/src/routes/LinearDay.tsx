@@ -230,7 +230,7 @@ return (
     <div className="LinearDayPage">
 
     <p className="content-box">
-    <h1> Morning </h1>
+    <h1 className="morning"> Morning </h1>
     <h3 className="cardOne">
       <img src={cardImageOne} width="350" height="500" />
                 <p />
@@ -260,8 +260,8 @@ return (
                         <p />
     </h3>
     </p>
-<button className="Reading" onClick={handleReading}> Get your reading! </button>
-<div className="The Reading"> {reading} </div>
+<button className="CotD" onClick={handleReading}> Get your reading! </button>
+<div className="Reading"> {reading} </div>
 </div>
 )
 }

@@ -43,6 +43,6 @@ public class ApiClient {
     HttpResponse<String> apiResponse = client.send(req, HttpResponse.BodyHandlers.ofString());
     String toReturn = "Status " + apiResponse.statusCode() + "\n";
     toReturn = toReturn + apiResponse.body() + "\n";
-    return toReturn;
+    return apiResponse.body();
   }
 }
