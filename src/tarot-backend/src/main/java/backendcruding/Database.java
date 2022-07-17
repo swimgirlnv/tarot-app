@@ -68,6 +68,27 @@ public class Database {
   }
 
   /**
+   * Gets x random cards from the Tarot table.
+   * @return The id of the card pulled.
+   */
+  public List<String> getCards(String cardNumber) {
+    List<String> cardIds = new ArrayList<>();
+    try {
+      String sql = "SELECT id FROM Tarot ORDER BY RANDOM() LIMIT " + cardNumber + ";";
+      PreparedStatement cardFinder = conn.prepareStatement(sql);
+      ResultSet rs = cardFinder.executeQuery();
+      // Ensure that we get all the tables in the database with while loop.
+      while (rs.next()) {
+        // Index based on 1, 2, etc. instead of 0, 1, etc.
+        cardIds.add(rs.getString(1));
+      }
+    } catch (SQLException e) {
+      System.out.println("ERROR: " + e.getMessage());
+    }
+    return cardIds;
+  }
+
+  /**
    * Gets the card name that corresponds with the random ID returned from getCard()
    */
   public String getCardName(String cardID){

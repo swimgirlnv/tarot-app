@@ -5,10 +5,11 @@ import axios from "axios";
 import './LinearDay.css';
 
 function LinearDay(props: any){
+  const [loaded, setLoaded] = useState(false);
 
-  const [cardIDOne, setCardIDOne] = useState("")
-  const [cardIDTwo, setCardIDTwo] = useState("")
-  const [cardIDThree, setCardIDThree] = useState("")
+  const [cardIDOne, setCardIDOne] = useState("22")
+  const [cardIDTwo, setCardIDTwo] = useState("22")
+  const [cardIDThree, setCardIDThree] = useState("22")
 
   const [cardNameOne, setCardNameOne] = useState("")
     const [cardNameTwo, setCardNameTwo] = useState("")
@@ -35,19 +36,35 @@ function LinearDay(props: any){
     }
   };
 
+  useEffect(() => { setLoaded(true) })
+
+  useEffect(() => {
+    if (loaded) {
+        axios.get("http://localhost:4567/getCards/3", config)
+                // @ts-ignore
+                .then(response => {
+                  console.log("this is response.data for getCards: " + response.data);
+                  console.log(response.data[0]);
+                  console.log(response.data[1]);
+                  console.log(response.data[2]);
+                  //List<String> cardIds = new ArrayList<>();
+                  // TODO: make a loop that puts all the ids into a list from response.data?
+                  // setCardID x as each card
+                  setCardIDOne(response.data[0]);
+                  setCardIDTwo(response.data[1]);
+                  setCardIDThree(response.data[2]);
+
+                  console.log(cardIDOne);
+                })
+                // @ts-ignore
+                .catch(error => {
+                  console.log(error);
+                });
+    }
+  }, [loaded]);
+
 
 const handleCard1 = () => {
-
-axios.get("http://localhost:4567/getCard", config)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getCard: " + response.data);
-          setCardIDOne(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
 
 axios.get("http://localhost:4567/getCardName/" + cardIDOne, config)
         // @ts-ignore
@@ -97,17 +114,6 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDOne, config)
 
 const handleCard2 = () => {
 
-axios.get("http://localhost:4567/getCard", config)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getCard: " + response.data);
-          setCardIDTwo(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
-
 axios.get("http://localhost:4567/getCardName/" + cardIDTwo, config)
         // @ts-ignore
         .then(response => {
@@ -155,17 +161,6 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDTwo, config)
 
 const handleCard3 = () => {
 
-axios.get("http://localhost:4567/getCard", config)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getCard: " + response.data);
-          setCardIDThree(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
-
 axios.get("http://localhost:4567/getCardName/" + cardIDThree, config)
         // @ts-ignore
         .then(response => {
@@ -209,6 +204,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
               .catch(error => {
               console.log(error);
               });
+
 }
 
 const handleReading = () => {
@@ -225,18 +221,21 @@ axios.get("http://localhost:4567/getReading/" + cardNameOne + "/" + cardNameTwo 
         });
 }
 
+const [disable1, setDisable1] = React.useState(false);
+const [disable2, setDisable2] = React.useState(false);
+const [disable3, setDisable3] = React.useState(false);
 
 return (
     <div className="LinearDayPage">
 
-    <p className="content-box">
-    <h1> Morning </h1>
+    <div className="content-box">
+    <h1 className="morning"> Morning </h1>
     <h3 className="cardOne">
       <img src={cardImageOne} width="350" height="500" />
                 <p />
                 <p>Upright: {cardUprightOne} </p>
                 <p>Reverse: {cardReverseOne} </p>
-                <button className="CotD" onClick={handleCard1}> Card 1 </button>
+                <button className="CotD" disabled={disable1} onClick={handleCard1}> Card 1 </button>
                 <p />
     </h3>
 
@@ -246,7 +245,7 @@ return (
                     <p />
                     <p>Upright: {cardUprightTwo} </p>
                     <p>Reverse: {cardReverseTwo} </p>
-                    <button className="CotD" onClick={handleCard2}> Card 2 </button>
+                    <button className="CotD" disabled={disable2} onClick={handleCard2}> Card 2 </button>
                     <p />
     </h3>
 
@@ -256,12 +255,12 @@ return (
                         <p />
                         <p>Upright: {cardUprightThree} </p>
                         <p>Reverse: {cardReverseThree} </p>
-                        <button className="CotD" onClick={handleCard3}> Card 3 </button>
+                        <button className="CotD" disabled={disable3} onClick={handleCard3}> Card 3 </button>
                         <p />
     </h3>
-    </p>
-<button className="Reading" onClick={handleReading}> Get your reading! </button>
-<div className="The Reading"> {reading} </div>
+    </div>
+<button className="CotD" onClick={handleReading}> Get your reading! </button>
+<div className="Reading"> {reading} </div>
 </div>
 )
 }
