@@ -1,9 +1,0 @@
-edu/brown/cs/student/main/Main.class
-openai/Choice.class
-openai/TextCompletion.class
-openai/Usage.class
-client/ClientRequestGenerator.class
-client/ClientAuthenticator.class
-backendcruding/Database.class
-client/FortuneTeller.class
-client/ApiClient.class
