@@ -83,6 +83,11 @@ public final class Main {
       return gson.toJson(db.getCard());
     });
 
+    Spark.get("/getCards/:n", (req, res) -> {
+      String numCards = req.params(":n");
+      return gson.toJson(db.getCards(numCards));
+    });
+
     Spark.get("/getCardName/:n", (req, res) -> {
       String cardID = req.params(":n");
       return gson.toJson(db.getCardName(cardID));
