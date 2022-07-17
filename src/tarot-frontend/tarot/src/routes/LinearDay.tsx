@@ -5,7 +5,7 @@ import axios from "axios";
 import './LinearDay.css';
 
 function LinearDay(props: any){
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
   const [cardIDTwo, setCardIDTwo] = useState("22")
@@ -36,10 +36,10 @@ function LinearDay(props: any){
     }
   };
 
-  useEffect(() => {
-    if (loading) {
-        setLoading(false);
+  useEffect(() => { setLoaded(true) })
 
+  useEffect(() => {
+    if (loaded) {
         axios.get("http://localhost:4567/getCards/3", config)
                 // @ts-ignore
                 .then(response => {
@@ -61,7 +61,7 @@ function LinearDay(props: any){
                   console.log(error);
                 });
     }
-  });
+  }, [loaded]);
 
 
 const handleCard1 = () => {
