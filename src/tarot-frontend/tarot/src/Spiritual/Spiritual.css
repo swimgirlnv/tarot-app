@@ -1,0 +1,35 @@
+.SpiritualPage {
+text-align: center;
+height: 100vh;
+background-color: PaleGoldenRod;
+}
+
+.sp-h1 {
+text-align: center;
+background-color: DarkGoldenRod;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 130px;
+  margin-top: 0px;
+
+}
+
+.DreamMessages {
+margin: auto;
+background-color: GoldenRod;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.DreamMessages:hover {
+background-color: BurlyWood;
+  color: white;
+}

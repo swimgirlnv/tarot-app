@@ -124,6 +124,23 @@ public final class Main {
       return gson.toJson(fortuneTeller.CareerInterpreter(one, two, three, four, five));
     });
 
+    Spark.get("/getReadingDreamMessages/:one/:two/:three/:four/:five", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      String five = req.params(":five");
+      return gson.toJson(fortuneTeller.SpiritualInterpreter(one, two, three, four, five));
+    });
+
+    Spark.get("/getReadingHTF/:one/:two/:three/:four", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      return gson.toJson(fortuneTeller.LoveInterpreter(one, two, three, four));
+    });
+
     Spark.init();
 
   }

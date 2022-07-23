@@ -1,38 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import '../Spiritual/Spiritual.css';
 
 function Spiritual(props: any){
 
 let navigate = useNavigate();
 
-const handleCareer = () => {
-    navigate("/Career");
+const handleDM = () => {
+    navigate("/DreamMessages");
 }
 
-const handleDaily = () => {
-    navigate("/Daily");
-}
-
-const handleLove = () => {
-    navigate("/Love");
-}
-
-const handleSpiritual = () => {
-    navigate("/Spiritual");
+const back = () => {
+navigate("/");
 }
 
 return (
     <div className="SpiritualPage text-center">
-      <h1 className="display-4">Welcome to AI Tarot Readings!</h1>
+      <button className="back" onClick={back}> Back </button>
 
-      <button className="Career" onClick={handleCareer}> Career </button>
+      <h1 className="sp-h1">Spiritual Tarot Readings</h1>
 
-      <button className="Daily" onClick={handleDaily}> Daily </button>
-
-      <button className="Love" onClick={handleLove}> Love </button>
-
-      <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
+      <button className="DreamMessages" onClick={handleDM}> Dream Messages </button>
 
     </div>
 )

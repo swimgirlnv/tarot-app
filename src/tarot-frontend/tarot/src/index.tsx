@@ -22,6 +22,8 @@ import { BrowserRouter as Router,
 
  import ShootingForward from './routes/ShootingForward';
  import LinearDay from './routes/LinearDay';
+ import DreamMessages from './routes/DreamMessages';
+ import HTF from './routes/HTF';
 
 
 const root = ReactDOM.createRoot(
@@ -37,9 +39,11 @@ root.render(
            <Route path="Login" element={<Login />} />
            <Route path="SignUp" element={<SignUp />} />
            <Route path="love" element={<Love />} />
+                      <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
                       <Route path="shootingForward" element={<ShootingForward /> } />
            <Route path="spiritual" element={<Spiritual />} />
+                      <Route path="dreamMessages" element={<DreamMessages /> } />
            <Route path="daily" element={<Daily />} />
                       <Route path="linearDay" element={<LinearDay />} />
          </Routes>
