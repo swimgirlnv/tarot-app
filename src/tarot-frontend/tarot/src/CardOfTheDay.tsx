@@ -3,6 +3,7 @@ import React, {createContext, useEffect, useState} from 'react';
 // @ts-ignore
 import axios from "axios";
 import './CardOfTheDay.css';
+import * as Constants from './Constants';
 
 // @ts-ignore
 export const AppContext = createContext();
@@ -24,7 +25,7 @@ function CardOfTheDay() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:4567/getCard", config)
+    axios.get(Constants.SERVER_URL + "/getCard", config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -41,7 +42,7 @@ function CardOfTheDay() {
 
 const handleCotD = () => {
 
-axios.get("http://localhost:4567/getCardImage/" + cardID, config)
+axios.get(Constants.SERVER_URL + "/getCardImage/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -52,7 +53,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardID, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardID, config)
+axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -63,7 +64,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardID, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardID, config)
+axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
