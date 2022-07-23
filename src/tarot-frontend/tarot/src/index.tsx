@@ -17,6 +17,8 @@ import { BrowserRouter as Router,
  import Career from './routes/Career';
  import Spiritual from './routes/Spiritual';
  import Daily from './routes/Daily';
+ import Login from './routes/Login'
+ import SignUp from './routes/SignUp'
 
  import ShootingForward from './routes/ShootingForward';
  import LinearDay from './routes/LinearDay';
@@ -32,6 +34,8 @@ root.render(
      <Router>
          <Routes>
            <Route path="/" element={<App />} />
+           <Route path="Login" element={<Login />} />
+           <Route path="SignUp" element={<SignUp />} />
            <Route path="love" element={<Love />} />
            <Route path="career" element={<Career /> } />
                       <Route path="shootingForward" element={<ShootingForward /> } />

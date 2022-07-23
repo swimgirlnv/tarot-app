@@ -209,7 +209,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
 
 const handleReading = () => {
 
-axios.get("http://localhost:4567/getReading/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree, config)
+axios.get("http://localhost:4567/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree, config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getReading: " + response.data);
@@ -225,8 +225,15 @@ const [disable1, setDisable1] = React.useState(false);
 const [disable2, setDisable2] = React.useState(false);
 const [disable3, setDisable3] = React.useState(false);
 
+let navigate = useNavigate();
+const back = () => {
+navigate("/Daily");
+}
+
 return (
     <div className="LinearDayPage">
+
+    <button className="back" onClick={back}> Back </button>
 
     <div className="content-box">
     <h1 className="morning"> Morning </h1>

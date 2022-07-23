@@ -74,7 +74,7 @@ public class Database {
   public List<String> getCards(String cardNumber) {
     List<String> cardIds = new ArrayList<>();
     try {
-      String sql = "SELECT id FROM Tarot ORDER BY RANDOM() LIMIT " + cardNumber + ";";
+      String sql = "SELECT id FROM Tarot WHERE id <> 22 ORDER BY RANDOM() LIMIT " + cardNumber + ";";
       PreparedStatement cardFinder = conn.prepareStatement(sql);
       ResultSet rs = cardFinder.executeQuery();
       // Ensure that we get all the tables in the database with while loop.

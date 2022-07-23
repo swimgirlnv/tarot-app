@@ -108,11 +108,20 @@ public final class Main {
       return gson.toJson(db.getCardImage(cardID));
     });
 
-    Spark.get("/getReading/:morning/:afternoon/:evening", (req, res) -> {
+    Spark.get("/getReadingLinearDay/:morning/:afternoon/:evening", (req, res) -> {
       String morning = req.params(":morning");
       String afternoon = req.params(":afternoon");
       String evening = req.params(":evening");
       return gson.toJson(fortuneTeller.DailyInterpreter(morning, afternoon, evening));
+    });
+
+    Spark.get("/getReadingShootingForward/:one/:two/:three/:four/:five", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      String five = req.params(":five");
+      return gson.toJson(fortuneTeller.CareerInterpreter(one, two, three, four, five));
     });
 
     Spark.init();

@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import { useNavigate } from "react-router-dom";
 import CardOfTheDay from './CardOfTheDay';
-import SignIn from './SignIn';
 
 function App() {
   let navigate = useNavigate();
@@ -24,11 +23,21 @@ function App() {
       navigate("/Spiritual");
   }
 
+  const handleLogin = () => {
+      navigate("/Login");
+  }
+
+  const handleRegister = () => {
+      navigate("/SignUp");
+  }
+
   return (
       <div className="App text-center">
-        <h1 className="a-h1">Welcome to AI Tarot Readings!</h1>
 
-        <SignIn />
+      <button className="Login" onClick={handleLogin}> Sign in </button>
+      <button className="Register" onClick={handleRegister}> Register </button>
+
+        <h1 className="a-h1">Welcome to AI Tarot Readings!</h1>
 
         <CardOfTheDay />
 
@@ -39,6 +48,7 @@ function App() {
         <button className="Love" onClick={handleLove}> Love </button>
 
         <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
+
 
       </div>
   )
