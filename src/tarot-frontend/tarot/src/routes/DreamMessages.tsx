@@ -346,7 +346,7 @@ return (
 
     <button className="back" onClick={back}> Back </button>
 
-    <div className="content-box-sf">
+    <div className="content-box-dm">
     <h2 className="morning"> Past Event </h2>
     <h3 className="cardOne">
       <img src={cardImageOne} width="175" height="250" />

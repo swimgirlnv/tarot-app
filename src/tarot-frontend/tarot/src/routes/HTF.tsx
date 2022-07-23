@@ -292,7 +292,7 @@ return (
 
     <button className="back" onClick={back}> Back </button>
 
-    <div className="content-box-sf">
+    <div className="content-box-htf">
     <h2 className="morning"> How they feel about you </h2>
     <h3 className="cardOne">
       <img src={cardImageOne} width="175" height="250" />

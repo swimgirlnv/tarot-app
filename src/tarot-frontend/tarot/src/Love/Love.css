@@ -17,7 +17,7 @@ background-color: Crimson;
 }
 
 .HTF {
-margin: auto;
+margin: 20px;
 background-color: MediumVioletRed;
   border: none;
   color: white;
@@ -27,6 +27,7 @@ background-color: MediumVioletRed;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .HTF:hover {

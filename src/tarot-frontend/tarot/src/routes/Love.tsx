@@ -25,6 +25,13 @@ const handleHTF = () => {
     navigate("/HTF");
 }
 
+const handleWTC = () => {
+}
+const handleMSN = () => {
+}
+const handleFNL = () => {
+}
+
 const back = () => {
 navigate("/");
 }
@@ -36,6 +43,10 @@ return (
       <h1 className="lp-h1">Love and Relationship Tarot Spreads</h1>
 
       <button className="HTF" onClick={handleHTF}> How they feel </button>
+
+      <button className="HTF" onClick={handleWTC}> Will they call? </button>
+      <button className="HTF" onClick={handleFNL}> Finding new love </button>
+      <button className="HTF" onClick={handleMSN}> Met someone new... </button>
 
     </div>
 )

@@ -27,6 +27,7 @@ background-color: DarkGreen;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .Career:hover {
@@ -45,6 +46,7 @@ background-color: RebeccaPurple;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .Daily:hover {
@@ -63,6 +65,8 @@ background-color: Crimson;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
+
 }
 
 .Love:hover {
@@ -81,6 +85,8 @@ background-color: DarkGoldenRod;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
+
 }
 
 .Spiritual:hover {

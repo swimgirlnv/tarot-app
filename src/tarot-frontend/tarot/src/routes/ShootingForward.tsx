@@ -376,7 +376,6 @@ return (
                         <button className="CotD" disabled={disable3} onClick={handleCard3}> Card 3 </button>
                         <p />
     </h3>
-
     <h2> Where to find help </h2>
         <h3 className="cardFour">
                   <img src={cardImageFour} width="175" height="250" />

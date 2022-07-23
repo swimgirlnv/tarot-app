@@ -3,7 +3,7 @@ height: 150vh;
 background-color: GoldenRod;
 }
 
-.content-box-sf {
+.content-box-dm {
 columns: 5 auto;
 padding-top: 40px;
 }
@@ -23,6 +23,7 @@ background-color: Crimson;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .Reading:hover {
