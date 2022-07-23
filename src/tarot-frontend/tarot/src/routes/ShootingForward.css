@@ -1,0 +1,31 @@
+.ShootingForwardPage {
+height: 150vh;
+background-color: Green;
+}
+
+.content-box-sf {
+columns: 5 auto;
+padding-top: 40px;
+}
+
+.morning {
+margin-top: 0px;
+}
+
+.Reading {
+margin: auto;
+background-color: Crimson;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.Reading:hover {
+background-color: LightPink;
+  color: white;
+}
