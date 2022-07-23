@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import axios from "axios";
 import './HTF.css';
+import * as Constants from '../Constants';
 
 function HTF(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +47,7 @@ function HTF(props: any){
 
   useEffect(() => {
     if (loaded) {
-        axios.get("http://localhost:4567/getCards/4", config)
+        axios.get(Constants.SERVER_URL + "/getCards/4", config)
                 // @ts-ignore
                 .then(response => {
                   console.log("this is response.data for getCards: " + response.data);
@@ -71,7 +72,7 @@ function HTF(props: any){
 
 const handleCard1 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDOne, config)
+axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDOne, config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCardName: " + response.data);
@@ -83,7 +84,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDOne, config)
         });
 
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDOne, config)
+axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDOne, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -94,7 +95,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDOne, config)
+axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDOne, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -105,7 +106,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDOne, config)
+axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDOne, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -119,7 +120,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDOne, config)
 
 const handleCard2 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDTwo, config)
+axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDTwo, config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -130,7 +131,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDTwo, config)
           console.log(error);
         });
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDTwo, config)
+axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDTwo, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -141,7 +142,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDTwo, config)
+axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDTwo, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -152,7 +153,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDTwo, config)
+axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDTwo, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -166,7 +167,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDTwo, config)
 
 const handleCard3 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDThree, config)
+axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDThree, config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -177,7 +178,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDThree, config)
           console.log(error);
         });
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDThree, config)
+axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDThree, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -188,7 +189,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDThree, config)
+axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDThree, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -199,7 +200,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
+axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDThree, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -214,7 +215,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
 
 const handleCard4 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDFour, config)
+axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDFour, config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -225,7 +226,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDFour, config)
           console.log(error);
         });
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDFour, config)
+axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDFour, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -236,7 +237,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDFour, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDFour, config)
+axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDFour, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -247,7 +248,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDFour, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDFour, config)
+axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDFour, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -263,7 +264,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDFour, config)
 
 const handleReading = () => {
 
-axios.get("http://localhost:4567/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
+axios.get(Constants.SERVER_URL + "/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour, config)
         // @ts-ignore
         .then(response => {
