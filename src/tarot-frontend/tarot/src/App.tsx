@@ -12,7 +12,7 @@ import * as Constants from './Constants';
 function App() {
   let navigate = useNavigate();
   const {token, setToken} = useToken();
-  const {decodedToken, isExpired} = useJwt(token);
+  const {decodedToken, isExpired}: {decodedToken: any, isExpired: boolean} = useJwt(token);
   if (!token || isExpired) {
     return <Login setToken={setToken} />
   }
@@ -40,7 +40,7 @@ function App() {
   return (
       <div className="App text-center">
 
-        <h1 className="a-h1">Welcome to AI Tarot Readings!</h1>
+        <h1 className="a-h1">Hello, {decodedToken?.given_name}! Welcome to AI Tarot Readings!</h1>
 
         <CardOfTheDay />
 
@@ -52,7 +52,10 @@ function App() {
 
         <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
 
-
+        <div>
+          You are communing with the spirits as {decodedToken?.name}.
+          <button className="Logout" onClick={() => setToken("")}>Log Out</button>
+        </div>
       </div>
   )
 }
