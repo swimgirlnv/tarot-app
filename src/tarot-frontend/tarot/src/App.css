@@ -1,23 +1,23 @@
 .App {
+  margin-top: 0px;
   text-align: center;
   height: 100vh;
   background-color: DodgerBlue;
   min-height: 100vh;
-
 }
 
 .a-h1 {
+  margin-top: 0px;
 text-align: center;
 background-color: Gold;
   color: Maroon;
   font-size: 20px;
   padding: 10px 60px;
   border-radius: 5px;
-  margin: 10px 130px;
 }
 
 .Career {
-margin: auto;
+margin-right: 20px;
 background-color: DarkGreen;
   border: none;
   color: white;
@@ -36,7 +36,7 @@ background-color: LightGreen;
 }
 
 .Daily {
-margin: auto;
+margin-right: 20px;
 background-color: RebeccaPurple;
   border: none;
   color: white;
@@ -55,7 +55,7 @@ background-color: Plum;
 }
 
 .Love {
-margin: auto;
+margin-right: 20px;
 background-color: Crimson;
   border: none;
   color: white;
@@ -75,7 +75,7 @@ background-color: LightPink;
 }
 
 .Spiritual {
-margin: auto;
+margin-right: 20px;
 background-color: DarkGoldenRod;
   border: none;
   color: white;

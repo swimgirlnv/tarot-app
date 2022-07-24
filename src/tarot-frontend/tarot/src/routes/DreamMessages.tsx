@@ -343,6 +343,7 @@ return (
 
     <button className="back" onClick={back}> Back </button>
     <button className="home" onClick={home}> Home </button>
+    <h1 className="sp-h1"> Dream Messages </h1>
 
     <div className="content-box-dm">
     <h2 className="morning"> Past Event </h2>

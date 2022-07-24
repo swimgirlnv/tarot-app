@@ -34,8 +34,9 @@ return (
       <button className="back" onClick={back}> Back </button>
 
       <h1 className="dp-h1">Daily Tarot Spreads</h1>
-
       <button className="LinearDay" onClick={handleLinearDay}> Linear Day </button>
+      <p>A simple three card spread that will help guide you through each part of the day.</p>
+
 
     </div>
 )

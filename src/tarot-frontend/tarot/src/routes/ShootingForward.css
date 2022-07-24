@@ -1,10 +1,10 @@
 .ShootingForwardPage {
 height: 150vh;
-background-color: Green;
+background-color: YellowGreen;
 }
 
 .content-box-sf {
-columns: 5 auto;
+column-count: 5;
 padding-top: 40px;
 margin-left: 20px;
 }

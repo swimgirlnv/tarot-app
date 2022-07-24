@@ -290,6 +290,8 @@ return (
     <button className="back" onClick={back}> Back </button>
     <button className="home" onClick={home}> Home </button>
 
+    <h1 className="lp-h1"> How they feel </h1>
+
     <div className="content-box-htf">
     <h2 className="morning"> How they feel about you </h2>
     <h3 className="cardOne">

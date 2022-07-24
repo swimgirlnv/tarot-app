@@ -231,9 +231,9 @@ navigate("/");
 
 return (
     <div className="LinearDayPage">
-
     <button className="back" onClick={back}> Back </button>
     <button className="home" onClick={home}> Home </button>
+    <h1 className="dp-h1"> Linear Day </h1>
 
     <div className="content-box">
     <h1 className="morning"> Morning </h1>

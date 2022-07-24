@@ -344,6 +344,7 @@ return (
 
     <button className="back" onClick={back}> Back </button>
     <button className="home" onClick={home}> Home </button>
+    <h1 className="cp-h1"> Shooting Forward </h1>
 
     <div className="content-box-sf">
     <h2 className="morning"> Dream Job </h2>
