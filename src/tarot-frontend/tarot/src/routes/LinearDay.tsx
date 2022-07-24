@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import axios from "axios";
 import './LinearDay.css';
-import * as Constants from '../Constants';
 
 function LinearDay(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -30,18 +29,11 @@ function LinearDay(props: any){
 
   const [reading, setReading] = useState("")
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-
   useEffect(() => { setLoaded(true) })
 
   useEffect(() => {
     if (loaded) {
-        axios.get(Constants.SERVER_URL + "/getCards/3", config)
+        axios.get("/getCards/3")
                 // @ts-ignore
                 .then(response => {
                   console.log("this is response.data for getCards: " + response.data);
@@ -67,7 +59,7 @@ function LinearDay(props: any){
 
 const handleCard1 = () => {
 
-axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDOne, config)
+axios.get("/getCardName/" + cardIDOne)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCardName: " + response.data);
@@ -79,7 +71,7 @@ axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDOne, config)
         });
 
 
-axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDOne, config)
+axios.get("/getCardImage/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -90,7 +82,7 @@ axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDOne, config)
+axios.get("/getCardUpright/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -101,7 +93,7 @@ axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDOne, config)
+axios.get("/getCardReverse/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -115,7 +107,7 @@ axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDOne, config)
 
 const handleCard2 = () => {
 
-axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDTwo, config)
+axios.get("/getCardName/" + cardIDTwo)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -126,7 +118,7 @@ axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDTwo, config)
           console.log(error);
         });
 
-axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDTwo, config)
+axios.get("/getCardImage/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -137,7 +129,7 @@ axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDTwo, config)
+axios.get("/getCardUpright/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -148,7 +140,7 @@ axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDTwo, config)
+axios.get("/getCardReverse/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -162,7 +154,7 @@ axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDTwo, config)
 
 const handleCard3 = () => {
 
-axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDThree, config)
+axios.get("/getCardName/" + cardIDThree)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -173,7 +165,7 @@ axios.get(Constants.SERVER_URL + "/getCardName/" + cardIDThree, config)
           console.log(error);
         });
 
-axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDThree, config)
+axios.get("/getCardImage/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -184,7 +176,7 @@ axios.get(Constants.SERVER_URL + "/getCardImage/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDThree, config)
+axios.get("/getCardUpright/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -195,7 +187,7 @@ axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDThree, config)
+axios.get("/getCardReverse/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -210,7 +202,7 @@ axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardIDThree, config)
 
 const handleReading = () => {
 
-axios.get(Constants.SERVER_URL + "/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree, config)
+axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getReading: " + response.data);

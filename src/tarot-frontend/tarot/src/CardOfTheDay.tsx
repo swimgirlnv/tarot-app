@@ -3,29 +3,26 @@ import React, {createContext, useEffect, useState} from 'react';
 // @ts-ignore
 import axios from "axios";
 import './CardOfTheDay.css';
-import * as Constants from './Constants';
 
 // @ts-ignore
 export const AppContext = createContext();
 
 
 function CardOfTheDay() {
-
+  const [loaded, setLoaded] = useState(false)
   const [cardID, setCardID] = useState("")
   const [cardName, setCardName] = useState("")
   const [cardUpright, setCardUpright] = useState("?")
   const [cardReverse, setCardReverse] = useState("?")
   const [cardImage, setCardImage] = useState("https://i.imgur.com/WeMKa8I.png")
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-
   useEffect(() => {
-    axios.get(Constants.SERVER_URL + "/getCard", config)
+    setLoaded(true);
+  });
+            
+  useEffect(() => {
+    if (loaded) {
+      axios.get("/getCard")
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -35,14 +32,15 @@ function CardOfTheDay() {
         .catch(error => {
           console.log(error);
         });
-  }, []);
+    }
+  }, [loaded]);
 
 
 
 
 const handleCotD = () => {
 
-axios.get(Constants.SERVER_URL + "/getCardImage/" + cardID, config)
+axios.get("/getCardImage/" + cardID)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -53,7 +51,7 @@ axios.get(Constants.SERVER_URL + "/getCardImage/" + cardID, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardID, config)
+axios.get("/getCardUpright/" + cardID)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -64,7 +62,7 @@ axios.get(Constants.SERVER_URL + "/getCardUpright/" + cardID, config)
               console.log(error);
               });
 
-axios.get(Constants.SERVER_URL + "/getCardReverse/" + cardID, config)
+axios.get("/getCardReverse/" + cardID)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);

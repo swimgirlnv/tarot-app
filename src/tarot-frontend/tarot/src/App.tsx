@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import CardOfTheDay from './CardOfTheDay';
 import useToken from './useToken';
 import Login from './Login';
+import axios from 'axios';
+import * as Constants from './Constants';
 
 function App() {
   let navigate = useNavigate();
@@ -13,6 +15,10 @@ function App() {
   if(!token) {
     return <Login setToken={setToken} />
   }
+
+  axios.defaults.baseURL = Constants.SERVER_URL;
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  axios.defaults.headers.common['Content-Type'] = "application/json";
 
   const handleCareer = () => {
       navigate("/Career");
