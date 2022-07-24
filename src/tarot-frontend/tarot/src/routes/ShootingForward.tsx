@@ -330,20 +330,8 @@ const [disable5, setDisable5] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
 
-let navigate = useNavigate();
-const back = () => {
-navigate("/Career");
-}
-const home = () => {
-navigate("/");
-}
-
-
 return (
     <div className="ShootingForwardPage">
-
-    <button className="back" onClick={back}> Back </button>
-    <button className="home" onClick={home}> Home </button>
     <h1 className="cp-h1"> Shooting Forward </h1>
 
     <div className="content-box-sf">

@@ -329,20 +329,9 @@ const [disable4, setDisable4] = React.useState(false);
 const [disable5, setDisable5] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
-
-let navigate = useNavigate();
-const back = () => {
-navigate("/Spiritual");
-}
-const home = () => {
-navigate("/");
-}
-
 return (
     <div className="DreamMessagesPage">
 
-    <button className="back" onClick={back}> Back </button>
-    <button className="home" onClick={home}> Home </button>
     <h1 className="sp-h1"> Dream Messages </h1>
 
     <div className="content-box-dm">

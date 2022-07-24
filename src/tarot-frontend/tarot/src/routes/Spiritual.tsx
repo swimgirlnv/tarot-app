@@ -10,18 +10,20 @@ const handleDM = () => {
     navigate("/DreamMessages");
 }
 
-const back = () => {
-navigate("/");
-}
 
 return (
     <div className="SpiritualPage text-center">
-      <button className="back" onClick={back}> Back </button>
 
       <h1 className="sp-h1">Spiritual Tarot Readings</h1>
+      <div className="buttonNdescription">
       <button className="DreamMessages" onClick={handleDM}> Dream Messages </button>
       <p> Looking for insight on your dreams? This spread will help interpret the message your dream conveys.</p>
+      </div>
 
+      <div className="buttonNdescription">
+            <button className="DreamMessages2"> Trust your Gut </button>
+            <p>If faced with a difficult situation or problem, this spread will help you trust your instincts.</p>
+            </div>
     </div>
 )
 }

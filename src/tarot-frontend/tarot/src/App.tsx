@@ -1,8 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { useNavigate } from "react-router-dom";
-import CardOfTheDay from './CardOfTheDay';
+
+//When ready for full game mode switch from BrowserRouter -> MemoryRouter
+import { BrowserRouter as Router,
+ Routes,
+ Route,
+ Link,
+ Navigate
+} from 'react-router-dom';
+
+
+import Home from './Home';
+import TopBar from './TopBar';
+import Love from './routes/Love';
+import Career from './routes/Career';
+import Spiritual from './routes/Spiritual';
+import Daily from './routes/Daily';
+
+import ShootingForward from './routes/ShootingForward';
+import LinearDay from './routes/LinearDay';
+import DreamMessages from './routes/DreamMessages';
+import HTF from './routes/HTF';
+
+
 import useToken from './useToken';
 import { useJwt } from 'react-jwt';
 import Login from './Login';
@@ -10,7 +29,6 @@ import axios from 'axios';
 import * as Constants from './Constants';
 
 function App() {
-  let navigate = useNavigate();
   const {token, setToken} = useToken();
   const {decodedToken, isExpired}: {decodedToken: any, isExpired: boolean} = useJwt(token);
   if (!token || isExpired) {
@@ -21,43 +39,25 @@ function App() {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   axios.defaults.headers.common['Content-Type'] = "application/json";
 
-  const handleCareer = () => {
-      navigate("/Career");
-  }
+    return (
+    <>
+     <Router>
+          <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
 
-  const handleDaily = () => {
-      navigate("/Daily");
-  }
-
-  const handleLove = () => {
-      navigate("/Love");
-  }
-
-  const handleSpiritual = () => {
-      navigate("/Spiritual");
-  }
-
-  return (
-      <div className="App text-center">
-
-        <h1 className="a-h1">Hello, {decodedToken?.given_name}! Welcome to AI Tarot Readings!</h1>
-
-        <CardOfTheDay />
-
-        <button className="Career" onClick={handleCareer}> Career </button>
-
-        <button className="Daily" onClick={handleDaily}> Daily </button>
-
-        <button className="Love" onClick={handleLove}> Love </button>
-
-        <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
-
-        <div>
-          You are communing with the spirits as {decodedToken?.name}.
-          <button className="Logout" onClick={() => setToken("")}>Log Out</button>
-        </div>
-      </div>
-  )
+         <Routes>
+           <Route path="/" element={<Home />} />
+           <Route path="love" element={<Love />} />
+                      <Route path="htf" element={<HTF />} />
+           <Route path="career" element={<Career /> } />
+                      <Route path="shootingForward" element={<ShootingForward /> } />
+           <Route path="spiritual" element={<Spiritual />} />
+                      <Route path="dreamMessages" element={<DreamMessages /> } />
+           <Route path="daily" element={<Daily />} />
+                      <Route path="linearDay" element={<LinearDay />} />
+         </Routes>
+     </Router>
+     </>
+    );
 }
 
 export default App;

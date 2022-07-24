@@ -275,20 +275,8 @@ const [disable3, setDisable3] = React.useState(false);
 const [disable4, setDisable4] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
-
-let navigate = useNavigate();
-const back = () => {
-navigate("/Love");
-}
-const home = () => {
-navigate("/");
-}
-
 return (
     <div className="HTFPage">
-
-    <button className="back" onClick={back}> Back </button>
-    <button className="home" onClick={home}> Home </button>
 
     <h1 className="lp-h1"> How they feel </h1>
 

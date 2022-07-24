@@ -220,19 +220,9 @@ const [disable3, setDisable3] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
 
-let navigate = useNavigate();
-const back = () => {
-navigate("/Daily");
-}
-const home = () => {
-navigate("/");
-}
-
-
 return (
     <div className="LinearDayPage">
-    <button className="back" onClick={back}> Back </button>
-    <button className="home" onClick={home}> Home </button>
+
     <h1 className="dp-h1"> Linear Day </h1>
 
     <div className="content-box">

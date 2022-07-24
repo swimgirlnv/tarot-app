@@ -6,6 +6,11 @@
   min-height: 100vh;
 }
 
+.buttonNdescription{
+display:flex;
+margin-right: 30px;
+}
+
 .a-h1 {
   margin-top: 0px;
 text-align: center;
@@ -14,20 +19,20 @@ background-color: Gold;
   font-size: 20px;
   padding: 10px 60px;
   border-radius: 5px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Career {
-margin-right: 20px;
 background-color: DarkGreen;
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
+  min-width: 132px;
 }
 
 .Career:hover {
@@ -36,17 +41,16 @@ background-color: LightGreen;
 }
 
 .Daily {
-margin-right: 20px;
 background-color: RebeccaPurple;
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
+    min-width: 132px;
 }
 
 .Daily:hover {
@@ -55,18 +59,16 @@ background-color: Plum;
 }
 
 .Love {
-margin-right: 20px;
 background-color: Crimson;
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-
+    min-width: 132px;
 }
 
 .Love:hover {
@@ -75,18 +77,16 @@ background-color: LightPink;
 }
 
 .Spiritual {
-margin-right: 20px;
 background-color: DarkGoldenRod;
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-
+    min-width: 132px;
 }
 
 .Spiritual:hover {
