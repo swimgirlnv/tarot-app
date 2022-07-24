@@ -4,6 +4,7 @@ import './App.css';
 import { useNavigate } from "react-router-dom";
 import CardOfTheDay from './CardOfTheDay';
 import useToken from './useToken';
+import { useJwt } from 'react-jwt';
 import Login from './Login';
 import axios from 'axios';
 import * as Constants from './Constants';
@@ -11,8 +12,8 @@ import * as Constants from './Constants';
 function App() {
   let navigate = useNavigate();
   const {token, setToken} = useToken();
-  
-  if(!token) {
+  const {decodedToken, isExpired} = useJwt(token);
+  if (!token || isExpired) {
     return <Login setToken={setToken} />
   }
 
