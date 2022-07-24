@@ -3,9 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import { useNavigate } from "react-router-dom";
 import CardOfTheDay from './CardOfTheDay';
+import useToken from './useToken';
+import Login from './Login';
 
 function App() {
   let navigate = useNavigate();
+  const {token, setToken} = useToken();
+  
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
 
   const handleCareer = () => {
       navigate("/Career");
@@ -23,19 +30,8 @@ function App() {
       navigate("/Spiritual");
   }
 
-  const handleLogin = () => {
-      navigate("/Login");
-  }
-
-  const handleRegister = () => {
-      navigate("/SignUp");
-  }
-
   return (
       <div className="App text-center">
-
-      <button className="Login" onClick={handleLogin}> Sign in </button>
-      <button className="Register" onClick={handleRegister}> Register </button>
 
         <h1 className="a-h1">Welcome to AI Tarot Readings!</h1>
 
