@@ -27,6 +27,10 @@ function TopBar(props: Props) {
       navigate("/Spiritual");
   }
 
+  const handleJournal = () => {
+        navigate("/Journal");
+    }
+
   return (
         <div className="top-bar">
         <a className="site-title" href="/">Major Arcana</a>
@@ -42,6 +46,7 @@ function TopBar(props: Props) {
               <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
           </div>
         </div>
+        <button className="journal" onClick={handleJournal}>Journal</button>
         <div className="user">
         You are communing with the spirits as <b>{props.userName}</b>.
         <button className="logout-button" onClick={props.onLogout}>Log Out</button>

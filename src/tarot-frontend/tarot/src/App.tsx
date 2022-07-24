@@ -15,6 +15,7 @@ import Love from './routes/Love';
 import Career from './routes/Career';
 import Spiritual from './routes/Spiritual';
 import Daily from './routes/Daily';
+import Journal from './routes/Journal';
 
 import ShootingForward from './routes/ShootingForward';
 import LinearDay from './routes/LinearDay';
@@ -46,6 +47,7 @@ function App() {
 
          <Routes>
            <Route path="/" element={<Home />} />
+           <Route path="journal" element={<Journal />} />
            <Route path="love" element={<Love />} />
                       <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
