@@ -217,16 +217,23 @@ axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + card
 const [disable1, setDisable1] = React.useState(false);
 const [disable2, setDisable2] = React.useState(false);
 const [disable3, setDisable3] = React.useState(false);
+const [disableReading, setDisableReading] = React.useState(false);
+
 
 let navigate = useNavigate();
 const back = () => {
 navigate("/Daily");
 }
+const home = () => {
+navigate("/");
+}
+
 
 return (
     <div className="LinearDayPage">
 
     <button className="back" onClick={back}> Back </button>
+    <button className="home" onClick={home}> Home </button>
 
     <div className="content-box">
     <h1 className="morning"> Morning </h1>
@@ -259,7 +266,7 @@ return (
                         <p />
     </h3>
     </div>
-<button className="CotD" onClick={handleReading}> Get your reading! </button>
+<button className="CotD" disabled={disableReading} onClick={handleReading}> Get your reading! </button>
 <div className="Reading"> {reading} </div>
 </div>
 )

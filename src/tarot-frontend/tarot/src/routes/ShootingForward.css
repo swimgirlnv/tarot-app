@@ -6,6 +6,7 @@ background-color: Green;
 .content-box-sf {
 columns: 5 auto;
 padding-top: 40px;
+margin-left: 20px;
 }
 
 .morning {
@@ -14,7 +15,6 @@ margin-top: 0px;
 
 .Reading {
 margin: auto;
-background-color: Crimson;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -23,10 +23,9 @@ background-color: Crimson;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
-  cursor: pointer;
 }
 
-.Reading:hover {
-background-color: LightPink;
-  color: white;
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 //When ready for full game mode switch from BrowserRouter -> MemoryRouter
-import { MemoryRouter as Router,
+import { BrowserRouter as Router,
  Routes,
  Route,
  Link,

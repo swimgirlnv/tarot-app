@@ -14,7 +14,6 @@ margin-top: 0px;
 
 .Reading {
 margin: auto;
-background-color: Crimson;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -23,10 +22,4 @@ background-color: Crimson;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.Reading:hover {
-background-color: LightPink;
-  color: white;
 }
