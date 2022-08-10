@@ -5,6 +5,11 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.security.*;
 import java.security.interfaces.RSAKey;
 import java.security.spec.RSAPublicKeySpec;
@@ -12,10 +17,13 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.math.BigInteger;
 import java.util.Base64;
+import java.util.Collection;
+import java.util.Map;
 
 import backendcruding.Database;
 import client.FortuneTeller;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import com.auth0.jwt.JWT;
@@ -196,27 +204,14 @@ public final class Main {
   protected static void verifyJwtToken(String token) throws JWTVerificationException, JWTDecodeException {
     // A lot of this from https://ncona.com/2015/02/consuming-a-google-id-token-from-a-server/
 
-    // Since we've hard-coded Google's public key below, make sure
-    // that it's the right key ID, and throw a somewhat helpful
-    // message.
+    // Get the certs.
     DecodedJWT jwt = JWT.decode(token);
-    if (!jwt.getKeyId().equals("074b928edf65a6f470c71b0a247bd0f7a4c9ccbc")) {
-      System.err.println("Got an unexpected key ID = " + jwt.getKeyId() + ": did Google rotate in a new public key?");
-      throw new JWTVerificationException("Unexpected JWT key ID");
-    }
     if (!jwt.getAlgorithm().equals("RS256")) {
       System.err.println("Got an unexpected signature algorithm = " + jwt.getAlgorithm());
       throw new JWTVerificationException("Unexpected JWT signature algorithm");
     }
 
-    // These are hard-coded values for the Google key with ID =
-    // 074b928edf65a6f470c71b0a247bd0f7a4c9ccbc. If we get a different
-    // key at some point, it means that Google rotated its certs and
-    // we need to re-fetch these values from
-    // https://www.googleapis.com/oauth2/v3/certs
-    BigInteger exponent = new BigInteger(1, Base64.getUrlDecoder().decode("AQAB"));
-    BigInteger modulus = new BigInteger(1, Base64.getUrlDecoder().decode("vzPaUgWDbV5pHZRg3EXSPmOSW4khgA6YLHASVp6uS-6y7sUCP976xu2rbg4aS8Dll5qDYjPIgrzhDwhtW9AjuHt6Ne1gSjsZv0nmLlDDIeCFH7hs8aTqyfazclFuvZmQxC2AoyoEL0UfdEOm0jZ_2fX_TiD6h5j__poWAIv9JtZ3SteYF2hfnlQJg_iCX7QNp3O_Bjl4omYjjS75IHAX_K1GR8RGWSXSRnbBUIYjFFE9Cu9n3pqyRM5jgPe1_v3H1BPePO9S4TS225JlDVdOTenvas7_HqR_fsgk_hNLu19WNniTKp1CuqWSweBHMI1P3-p5hmXPV4Ce4xHmOx9EWw"));
-    RSAPublicKeySpec pubKeySpec = new RSAPublicKeySpec(modulus, exponent);
+    RSAPublicKeySpec pubKeySpec = getGooglePubKey(jwt.getKeyId());
     String kMajorAracanaGoogleAppId = "87928211828-tgq8r75ntrl2d3qn6nujnldl9i99rsct.apps.googleusercontent.com";
 
     try {
@@ -234,5 +229,39 @@ public final class Main {
     } catch (InvalidKeySpecException ex) {
       throw new JWTVerificationException("Incorrectly configured key on server");
     }
+  }
+
+  protected static RSAPublicKeySpec getGooglePubKey(String kid) {
+    HttpClient client = HttpClient.newBuilder()
+      .version(HttpClient.Version.HTTP_1_1)
+      .build();
+
+    HttpRequest req = HttpRequest
+      .newBuilder()
+      .uri(URI.create("https://www.googleapis.com/oauth2/v2/certs"))
+      .build();
+
+    try {
+      HttpResponse<String> response = client.send
+        (req, HttpResponse.BodyHandlers.ofString());
+
+      Gson gson = new Gson();
+      Type type = new TypeToken<Map<String, Collection<Map<String, String>>>>(){}.getType();
+      Map<String, Collection<Map<String, String>>> keyMap = gson.fromJson(response.body(), type);
+
+      Collection<Map<String, String>> keys = keyMap.get("keys");
+      for (Map<String, String> key : keys) {
+        if (kid.equals(key.get("kid"))) {
+          BigInteger exponent = new BigInteger(1, Base64.getUrlDecoder().decode(key.get("e")));
+          BigInteger modulus = new BigInteger(1, Base64.getUrlDecoder().decode(key.get("n")));
+          return new RSAPublicKeySpec(modulus, exponent);
+        }
+      }
+    } catch (java.io.IOException ex) {
+      throw new JWTVerificationException("Could not retrieve Google pubkeys, " + ex);
+    } catch (java.lang.InterruptedException ex) {
+      throw new JWTVerificationException("Could not retrieve Google pubkeys, " + ex);    }
+
+    throw new JWTVerificationException("Could not find Google pubkey with ID " + kid);
   }
 }
