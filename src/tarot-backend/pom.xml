@@ -137,13 +137,6 @@
             <version>3.36.0.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
-        <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>java-jwt</artifactId>
-          <version>3.19.2</version>
-        </dependency>
-
         <dependency>
             <groupId>com.vaadin.external.google</groupId>
             <artifactId>android-json</artifactId>

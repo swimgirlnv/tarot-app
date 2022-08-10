@@ -9,20 +9,22 @@ export const AppContext = createContext();
 
 
 function CardOfTheDay() {
-  const [loaded, setLoaded] = useState(false)
+
   const [cardID, setCardID] = useState("")
   const [cardName, setCardName] = useState("")
   const [cardUpright, setCardUpright] = useState("?")
   const [cardReverse, setCardReverse] = useState("?")
   const [cardImage, setCardImage] = useState("https://i.imgur.com/WeMKa8I.png")
 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    }
+  };
+
   useEffect(() => {
-    setLoaded(true);
-  });
-            
-  useEffect(() => {
-    if (loaded) {
-      axios.get("/getCard")
+    axios.get("http://localhost:4567/getCard", config)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -32,15 +34,14 @@ function CardOfTheDay() {
         .catch(error => {
           console.log(error);
         });
-    }
-  }, [loaded]);
+  }, []);
 
 
 
 
 const handleCotD = () => {
 
-axios.get("/getCardImage/" + cardID)
+axios.get("http://localhost:4567/getCardImage/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -51,7 +52,7 @@ axios.get("/getCardImage/" + cardID)
               console.log(error);
               });
 
-axios.get("/getCardUpright/" + cardID)
+axios.get("http://localhost:4567/getCardUpright/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -62,7 +63,7 @@ axios.get("/getCardUpright/" + cardID)
               console.log(error);
               });
 
-axios.get("/getCardReverse/" + cardID)
+axios.get("http://localhost:4567/getCardReverse/" + cardID, config)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);

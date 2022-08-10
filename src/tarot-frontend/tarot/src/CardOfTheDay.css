@@ -2,6 +2,16 @@
  margin: auto;
 }
 
+.a-h1 {
+text-align: center;
+background-color: Gold;
+  color: Maroon;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 130px;
+}
+
 .CotD {
 place-items: center;
 margin: auto;
@@ -15,8 +25,6 @@ background-color: Gold;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .CotD:hover {
@@ -27,4 +35,58 @@ background-color: Blue;
 .disabled {
 opacity: 0.6;
 cursor: not-allowed;
+}
+
+.Daily {
+margin: auto;
+background-color: RebeccaPurple;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.Daily:hover {
+background-color: Plum;
+  color: white;
+}
+
+.Love {
+margin: auto;
+background-color: Crimson;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.Love:hover {
+background-color: LightPink;
+  color: white;
+}
+
+.Spiritual {
+margin: auto;
+background-color: DarkGoldenRod;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.Spiritual:hover {
+background-color: PaleGoldenRod;
+  color: white;
 }
