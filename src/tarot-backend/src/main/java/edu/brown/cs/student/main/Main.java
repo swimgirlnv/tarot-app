@@ -245,15 +245,29 @@ public final class Main {
       HttpResponse<String> response = client.send
         (req, HttpResponse.BodyHandlers.ofString());
 
+      // You can just look at the above URL directly to see what the
+      // JSON we get back is, but briefly, it's like this:
+      //
+      // { "keys": [{"kid": "<key-id-1>", ...}, {"kid": "<key-id-2>", ...}] }
+      //
+      // So, a map from strings to a list of string-string maps.
+      //
+      // We'll jimmy up the necessary Gson gunk to parse that. We want
+      // to find the key whose "kid" matches the key ID that's passed
+      // in, and then use its modulus ("n") and exponent ("e") to
+      // construct an RSA public key.
       Gson gson = new Gson();
       Type type = new TypeToken<Map<String, Collection<Map<String, String>>>>(){}.getType();
-      Map<String, Collection<Map<String, String>>> keyMap = gson.fromJson(response.body(), type);
+      Map<String, Collection<Map<String, String>>> keyMap =
+        gson.fromJson(response.body(), type);
 
       Collection<Map<String, String>> keys = keyMap.get("keys");
       for (Map<String, String> key : keys) {
         if (kid.equals(key.get("kid"))) {
-          BigInteger exponent = new BigInteger(1, Base64.getUrlDecoder().decode(key.get("e")));
-          BigInteger modulus = new BigInteger(1, Base64.getUrlDecoder().decode(key.get("n")));
+          BigInteger exponent = new BigInteger
+            (1, Base64.getUrlDecoder().decode(key.get("e")));
+          BigInteger modulus = new BigInteger
+            (1, Base64.getUrlDecoder().decode(key.get("n")));
           return new RSAPublicKeySpec(modulus, exponent);
         }
       }
