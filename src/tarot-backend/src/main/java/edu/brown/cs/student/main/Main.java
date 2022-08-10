@@ -274,7 +274,8 @@ public final class Main {
     } catch (java.io.IOException ex) {
       throw new JWTVerificationException("Could not retrieve Google pubkeys, " + ex);
     } catch (java.lang.InterruptedException ex) {
-      throw new JWTVerificationException("Could not retrieve Google pubkeys, " + ex);    }
+      throw new JWTVerificationException("Could not retrieve Google pubkeys, " + ex);
+    }
 
     throw new JWTVerificationException("Could not find Google pubkey with ID " + kid);
   }
