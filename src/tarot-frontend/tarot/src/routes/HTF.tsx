@@ -28,10 +28,10 @@ function HTF(props: any){
   const [cardReverseThree, setCardReverseThree] = useState("?")
   const [cardReverseFour, setCardReverseFour] = useState("?")
 
-  const [cardImageOne, setCardImageOne] = useState("https://i.imgur.com/WeMKa8I.png")
-  const [cardImageTwo, setCardImageTwo] = useState("https://i.imgur.com/WeMKa8I.png")
-  const [cardImageThree, setCardImageThree] = useState("https://i.imgur.com/WeMKa8I.png")
-  const [cardImageFour, setCardImageFour] = useState("https://i.imgur.com/WeMKa8I.png")
+  const [cardImageOne, setCardImageOne] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageTwo, setCardImageTwo] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageThree, setCardImageThree] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageFour, setCardImageFour] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const [reading, setReading] = useState("")
 

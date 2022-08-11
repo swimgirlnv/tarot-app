@@ -23,9 +23,9 @@ const [cardIDOne, setCardIDOne] = useState("22")
   const [cardReverseTwo, setCardReverseTwo] = useState("?")
   const [cardReverseThree, setCardReverseThree] = useState("?")
 
-  const [cardImageOne, setCardImageOne] = useState("https://i.imgur.com/WeMKa8I.png")
-  const [cardImageTwo, setCardImageTwo] = useState("https://i.imgur.com/WeMKa8I.png")
-  const [cardImageThree, setCardImageThree] = useState("https://i.imgur.com/WeMKa8I.png")
+  const [cardImageOne, setCardImageOne] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageTwo, setCardImageTwo] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageThree, setCardImageThree] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const [reading, setReading] = useState("")
 

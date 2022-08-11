@@ -17,7 +17,7 @@ code {
   box-sizing: border-box;
 }
 body {
-  background: AliceBlue !important;
+  background: CornflowerBlue !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;

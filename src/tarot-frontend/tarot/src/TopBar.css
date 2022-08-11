@@ -1,13 +1,10 @@
 .top-bar {
-  background-color: pink;
+  background-color: white;
   padding: 4px;
+  display: flex;
 }
 
 .top-bar .site-title {
-  font-family: "Courier New";
-  font-size: 32px;
-  text-decoration: none;
-  color: black;
   margin-right: 20px;
 }
 
@@ -38,6 +35,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-right: 10px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -53,14 +51,4 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.journal {
-  margin-left: 20px;
-  background-color: HotPink;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
 }

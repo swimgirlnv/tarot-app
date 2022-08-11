@@ -1,0 +1,48 @@
+.LovePage {
+text-align: center;
+height: 100vh;
+background-color: LightPink;
+}
+
+.lp-h1 {
+text-align: center;
+background-color: Crimson;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 0px;
+}
+
+.HTF {
+margin: 20px;
+background-color: MediumVioletRed;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.HTF2 {
+margin: 20px;
+background-color: MediumVioletRed;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: not-allowed;
+}
+
+.HTF:hover {
+background-color: PaleVioletRed;
+  color: white;
+}

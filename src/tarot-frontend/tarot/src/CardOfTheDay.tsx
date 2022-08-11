@@ -14,7 +14,7 @@ function CardOfTheDay() {
   const [cardName, setCardName] = useState("")
   const [cardUpright, setCardUpright] = useState("?")
   const [cardReverse, setCardReverse] = useState("?")
-  const [cardImage, setCardImage] = useState("https://i.imgur.com/WeMKa8I.png")
+  const [cardImage, setCardImage] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const config = {
     headers: {

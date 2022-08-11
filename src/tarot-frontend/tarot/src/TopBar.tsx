@@ -33,7 +33,7 @@ function TopBar(props: Props) {
 
   return (
         <div className="top-bar">
-        <a className="site-title" href="/">Major Arcana</a>
+        <a className="site-title" href="/"><img src="https://i.imgur.com/VOTLUX9.png" width="80" height="80"/></a>
         <div className="dropdown">
         <button className="dropbtn">Tarot Spreads</button>
           <div className="dropdown-content">
@@ -46,7 +46,9 @@ function TopBar(props: Props) {
               <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
           </div>
         </div>
-        <button className="journal" onClick={handleJournal}>Journal</button>
+        <div className="dropdown">
+            <button className="dropbtn" onClick={handleJournal}>Journal</button>
+        </div>
         <div className="user">
         You are communing with the spirits as <b>{props.userName}</b>.
         <button className="logout-button" onClick={props.onLogout}>Log Out</button>
