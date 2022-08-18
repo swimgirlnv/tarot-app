@@ -2,7 +2,7 @@
   margin-top: 0px;
   text-align: center;
   height: 100vh;
-  background-color: CornFlowerBlue;
+  background-color: #92c8c3;
 }
 
 .buttonNdescription{
@@ -13,11 +13,10 @@ margin-right: 30px;
 .a-h1 {
   margin-top: 0px;
 text-align: center;
-background-color: Gold;
-  color: Maroon;
+background-color: #f1ecc4;
+  color: #ca643a;
   font-size: 20px;
   padding: 10px 60px;
-  border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -58,7 +57,7 @@ background-color: Plum;
 }
 
 .Love {
-background-color: Crimson;
+background-color: #ca643a;
   border: none;
     color: white;
     padding: 15px 32px;

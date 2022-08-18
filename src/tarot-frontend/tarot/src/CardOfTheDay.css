@@ -4,20 +4,18 @@
 
 .a-h1 {
 text-align: center;
-background-color: Gold;
-  color: Maroon;
+background-color: #f1ecc4;
+  color: #ca643a;
   font-size: 20px;
   padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 130px;
 }
 
 .CotD {
 place-items: center;
 margin: auto;
-background-color: Gold;
+background-color: #f1ecc4;
+  color: #ca643a;
   border: none;
-  color: Maroon;
   padding: 15px 32px;
   border-radius: 8px;
   text-align: center;

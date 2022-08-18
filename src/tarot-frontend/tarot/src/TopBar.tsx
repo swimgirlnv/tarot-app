@@ -33,7 +33,7 @@ function TopBar(props: Props) {
 
   return (
         <div className="top-bar">
-        <a className="site-title" href="/"><img src="https://i.imgur.com/VOTLUX9.png" width="80" height="80"/></a>
+        <a className="site-title" href="/"><img src="https://i.imgur.com/9fTXRNl.png" width="80" height="80"/></a>
         <div className="dropdown">
         <button className="dropbtn">Tarot Spreads</button>
           <div className="dropdown-content">

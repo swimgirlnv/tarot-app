@@ -1,5 +1,5 @@
 .top-bar {
-  background-color: white;
+  background-color: #f2e0d8;
   padding: 4px;
   display: flex;
 }
@@ -23,7 +23,7 @@
 }
 
 .dropbtn {
-  background-color: HotPink;
+  background-color: #ca643a;
   color: white;
   padding: 16px;
   font-size: 16px;
