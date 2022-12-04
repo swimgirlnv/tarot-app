@@ -1,19 +1,15 @@
 .App {
   margin-top: 0px;
   text-align: center;
-  height: 100vh;
-  background-color: #92c8c3;
+  min-height: 100vh;
+  background-color: white;
 }
 
-.buttonNdescription{
-display:flex;
-margin-right: 30px;
-}
 
 .a-h1 {
   margin-top: 0px;
 text-align: center;
-background-color: #f1ecc4;
+background-color: rgb(225,157,95);
   color: #ca643a;
   font-size: 20px;
   padding: 10px 60px;
@@ -21,7 +17,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Career {
-background-color: DarkGreen;
+background-color: #30968c;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -34,12 +30,12 @@ background-color: DarkGreen;
 }
 
 .Career:hover {
-background-color: LightGreen;
+background-color: #42cfc1;
   color: white;
 }
 
 .Daily {
-background-color: RebeccaPurple;
+background-color: #b07721;
   border: none;
     color: white;
     padding: 15px 32px;
@@ -52,12 +48,12 @@ background-color: RebeccaPurple;
 }
 
 .Daily:hover {
-background-color: Plum;
+  background-color: #eba53d;
   color: white;
 }
 
 .Love {
-background-color: #ca643a;
+background-color: #c98669;
   border: none;
     color: white;
     padding: 15px 32px;
@@ -70,7 +66,7 @@ background-color: #ca643a;
 }
 
 .Love:hover {
-background-color: LightPink;
+background-color: #f5c1ab;
   color: white;
 }
 
@@ -90,4 +86,82 @@ background-color: DarkGoldenRod;
 .Spiritual:hover {
 background-color: PaleGoldenRod;
   color: white;
+}
+
+.item1 {
+  grid-area: choices;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex: 1;
+  min-height: 100vh;
+}
+.item2 {
+  grid-area: footer;
+  background-color: antiquewhite;
+  padding: 20px;
+  width: 100%;
+}
+
+.career-option {
+  background-color: rgb(177,225,205);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    min-width: 132px;
+}
+
+.daily-option {
+  background-color: rgb(255,178,0);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    min-width: 132px;
+}
+
+.love-option {
+  background-color: rgb(248,95,40);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    min-width: 132px;
+}
+
+.background-card {
+  opacity: 80%;
+}
+
+.background-card:hover {
+  opacity: 50%;
+}
+
+.img-container1 .img-btn {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.img-container2 .img-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img-container3 .img-btn {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
 }

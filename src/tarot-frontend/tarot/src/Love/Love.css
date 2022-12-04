@@ -1,12 +1,13 @@
 .LovePage {
 text-align: center;
 height: 100vh;
-background-color: LightPink;
+background-color: white;
+
 }
 
 .lp-h1 {
 text-align: center;
-background-color: Crimson;
+background-color: #c98669;
   color: white;
   font-size: 20px;
   padding: 10px 60px;
@@ -16,7 +17,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 .HTF {
 margin: 20px;
-background-color: MediumVioletRed;
+background-color: #c98669;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -26,11 +27,12 @@ background-color: MediumVioletRed;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
+  width: 200px;
 }
 
 .HTF2 {
 margin: 20px;
-background-color: MediumVioletRed;
+background-color: #c98669;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -40,9 +42,14 @@ background-color: MediumVioletRed;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: not-allowed;
+  width: 200px;
 }
 
 .HTF:hover {
-background-color: PaleVioletRed;
+background-color: #f5c1ab;
   color: white;
+}
+
+.love-table {
+  text-align: left;
 }

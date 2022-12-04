@@ -6,6 +6,8 @@ import './LinearDay.css';
 import Daily from './Daily';
 
 function LinearDay(props: any){
+  const [loaded, setLoaded] = useState(false);
+
 
 const [cardIDOne, setCardIDOne] = useState("22")
   const [cardIDTwo, setCardIDTwo] = useState("22")
@@ -29,17 +31,35 @@ const [cardIDOne, setCardIDOne] = useState("22")
 
   const [reading, setReading] = useState("")
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+  useEffect(() => { setLoaded(true) })
+
+  useEffect(() => {
+    if (loaded) {
+        axios.get("/getCards/3")
+                // @ts-ignore
+                .then(response => {
+                  console.log("this is response.data for getCards: " + response.data);
+                  console.log(response.data[0]);
+                  console.log(response.data[1]);
+                  console.log(response.data[2]);
+
+                  setCardIDOne(response.data[0]);
+                  setCardIDTwo(response.data[1]);
+                  setCardIDThree(response.data[2]);
+
+                  console.log(cardIDOne);
+                })
+                // @ts-ignore
+                .catch(error => {
+                  console.log(error);
+                });
     }
-  };
+  }, [loaded]);
 
 
 const handleCard1 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDOne, config)
+axios.get("/getCardName/" + cardIDOne)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCardName: " + response.data);
@@ -51,7 +71,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDOne, config)
         });
 
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDOne, config)
+axios.get("/getCardImage/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -62,7 +82,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDOne, config)
+axios.get("/getCardUpright/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -73,7 +93,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDOne, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDOne, config)
+axios.get("/getCardReverse/" + cardIDOne)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -87,7 +107,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDOne, config)
 
 const handleCard2 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDTwo, config)
+axios.get("/getCardName/" + cardIDTwo)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -98,7 +118,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDTwo, config)
           console.log(error);
         });
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDTwo, config)
+axios.get("/getCardImage/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -109,7 +129,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDTwo, config)
+axios.get("/getCardUpright/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -120,7 +140,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDTwo, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDTwo, config)
+axios.get("/getCardReverse/" + cardIDTwo)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -134,7 +154,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDTwo, config)
 
 const handleCard3 = () => {
 
-axios.get("http://localhost:4567/getCardName/" + cardIDThree, config)
+axios.get("/getCardName/" + cardIDThree)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getCard: " + response.data);
@@ -145,7 +165,7 @@ axios.get("http://localhost:4567/getCardName/" + cardIDThree, config)
           console.log(error);
         });
 
-axios.get("http://localhost:4567/getCardImage/" + cardIDThree, config)
+axios.get("/getCardImage/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardImage: " + response.data);
@@ -156,7 +176,7 @@ axios.get("http://localhost:4567/getCardImage/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardUpright/" + cardIDThree, config)
+axios.get("/getCardUpright/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardUpright: " + response.data);
@@ -167,7 +187,7 @@ axios.get("http://localhost:4567/getCardUpright/" + cardIDThree, config)
               console.log(error);
               });
 
-axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
+axios.get("/getCardReverse/" + cardIDThree)
               // @ts-ignore
               .then(response => {
               console.log("this is response.data for getCardReverse: " + response.data);
@@ -182,7 +202,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardIDThree, config)
 
 const handleReading = () => {
 
-axios.get("http://localhost:4567/getReading/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree, config)
+axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getReading: " + response.data);
@@ -200,37 +220,30 @@ const [disable3, setDisable3] = React.useState(false);
 
 return (
     <div className="LinearDayPage">
+      <h1 className="dp-h1"> Linear Day </h1>
 
     <div className="content-box">
-    <h1 className="morning"> Morning </h1>
-    <h3 className="cardOne">
-      <img src={cardImageOne} width="350" height="500" />
-                <p />
-                <p>Upright: {cardUprightOne} </p>
-                <p>Reverse: {cardReverseOne} </p>
-                <button className="CotD" disabled={disable1} onClick={handleCard1}> Card 1 </button>
-                <p />
-    </h3>
 
-    <h1> Afternoon </h1>
-    <h3 className="cardTwo">
-          <img src={cardImageTwo} width="350" height="500" />
-                    <p />
-                    <p>Upright: {cardUprightTwo} </p>
-                    <p>Reverse: {cardReverseTwo} </p>
-                    <button className="CotD" disabled={disable2} onClick={handleCard2}> Card 2 </button>
-                    <p />
-    </h3>
-
-    <h1> Evening </h1>
-    <h3 className="cardThree">
-              <img src={cardImageThree} width="350" height="500" />
-                        <p />
-                        <p>Upright: {cardUprightThree} </p>
-                        <p>Reverse: {cardReverseThree} </p>
-                        <button className="CotD" disabled={disable3} onClick={handleCard3}> Card 3 </button>
-                        <p />
-    </h3>
+      <div className="card">
+        <h2> Morning </h2>
+        <img src={cardImageOne} onClick={handleCard1} width="175" height="250" />
+        <p>Upright: {cardUprightOne} </p>
+        <p>Reverse: {cardReverseOne} </p>
+      </div>
+    
+      <div className="card">
+        <h2> Afternoon </h2>
+        <img src={cardImageTwo} onClick={handleCard2} width="175" height="250" />
+        <p>Upright: {cardUprightTwo} </p>
+        <p>Reverse: {cardReverseTwo} </p>
+      </div>
+    
+      <div className="card">
+        <h2> Evening </h2>
+        <img src={cardImageThree} onClick={handleCard3} width="175" height="250" />
+        <p>Upright: {cardUprightThree} </p>
+        <p>Reverse: {cardReverseThree} </p>
+      </div>
     </div>
 <button className="CotD" onClick={handleReading}> Get your reading! </button>
 <div className="Reading"> {reading} </div>

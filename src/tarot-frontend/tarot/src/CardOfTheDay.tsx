@@ -76,7 +76,7 @@ axios.get("http://localhost:4567/getCardReverse/" + cardID, config)
 }
   return (
     <div className="CardOfTheDay">
-          <img src={cardImage} width="350" height="500" />
+          <img src={cardImage} width="200" height="300" />
           <p />
           <p>Upright: {cardUpright} </p>
           <p>Reverse: {cardReverse} </p>

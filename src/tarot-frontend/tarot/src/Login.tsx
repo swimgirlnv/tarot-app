@@ -5,6 +5,7 @@ import './Login.css';
 
 export default function Login(setTokenThingy: any) {
   return(
+    <div className="login-wrap-wrapper">
     <div className="login-wrapper">
       <h1>
         Welcome to Major Arcana!
@@ -33,6 +34,7 @@ export default function Login(setTokenThingy: any) {
         please <a href="mailto:oracle@majorarcana.net">contact The Oracle</a>!
       </div>
 
+      </div>
       </div>
   )
 }

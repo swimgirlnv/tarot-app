@@ -23,10 +23,6 @@ function TopBar(props: Props) {
       navigate("/Love");
   }
 
-  const handleSpiritual = () => {
-      navigate("/Spiritual");
-  }
-
   const handleJournal = () => {
         navigate("/Journal");
     }
@@ -43,7 +39,6 @@ function TopBar(props: Props) {
 
               <button className="Love" onClick={handleLove}> Love </button>
 
-              <button className="Spiritual" onClick={handleSpiritual}> Spiritual </button>
           </div>
         </div>
         <div className="dropdown">

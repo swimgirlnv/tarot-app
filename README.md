@@ -10,3 +10,5 @@ Career Spreads:
 - Shooting for
 
 card image address: https://i.imgur.com/jIFJM2L.png
+
+background image: Image by <a href="https://www.freepik.com/free-vector/psychedelic-groovy-background_12498932.htm#query=groovy%20background%20wallpaper&position=0&from_view=keyword">Freepik</a>

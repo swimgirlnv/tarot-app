@@ -13,7 +13,6 @@ import Home from './Home';
 import TopBar from './TopBar';
 import Love from './routes/Love';
 import Career from './routes/Career';
-import Spiritual from './routes/Spiritual';
 import Daily from './routes/Daily';
 import Journal from './routes/Journal';
 
@@ -52,7 +51,6 @@ function App() {
                       <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
                       <Route path="shootingForward" element={<ShootingForward /> } />
-           <Route path="spiritual" element={<Spiritual />} />
                       <Route path="dreamMessages" element={<DreamMessages /> } />
            <Route path="daily" element={<Daily />} />
                       <Route path="linearDay" element={<LinearDay />} />

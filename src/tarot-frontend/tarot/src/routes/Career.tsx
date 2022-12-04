@@ -14,18 +14,18 @@ const handleShootingForward = () => {
 return (
     <div className="CareerPage">
       <h1 className="cp-h1">Career Tarot Spreads</h1>
-      <div className="buttonNdescription">
-      <button className="ShootingForward" onClick={handleShootingForward}> Shooting Forward </button>
-      <p> Looking for the way toward achieving what you want?
-      This tarot spread can help clarify your path and how to attain your goals.
-      </p>
-</div>
-      <div className="buttonNdescription">
-            <button className="ShootingForward2"> Self Reflection </button>
-            <p>If you are interested in finding your true self and your strengths, this spread will help you
-            with personal growth and nurturing.
-            </p>
-      </div>
+      <table className="career-table">
+        <tr>
+          <td><button className="ShootingForward" onClick={handleShootingForward}> Shooting Forward </button></td>
+          <td>Looking for the way toward achieving what you want?
+      This tarot spread can help clarify how you might attain your goals.</td>
+        </tr>
+        <tr>
+          <td><button className="ShootingForward2"> Self Reflection </button></td>
+          <td>If you are interested in finding your true self and your strengths, this spread will help you
+            with personal growth and nurturing.</td>
+        </tr>
+      </table>
 
     </div>
 )

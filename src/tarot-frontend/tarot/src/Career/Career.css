@@ -1,28 +1,30 @@
 .CareerPage {
 text-align: center;
 height: 100vh;
-background-color: YellowGreen;
+background-color: white;
+
 }
 
 .cp-h1 {
-text-align: center;
-background-color: DarkGreen;
+  text-align: center;
+  background-color: #30968c;
   color: white;
   font-size: 20px;
   padding: 10px 60px;
   margin-top: 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
 .back {
-margin:auto;
-position: absolute;
+  margin:auto;
+  position: absolute;
   left: 20px;
 }
 
 .ShootingForward {
-margin: 20px;
-background-color: OliveDrab;
+  margin: 20px;
+  background-color: #30968c;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -32,13 +34,13 @@ background-color: OliveDrab;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 200px;
 }
 
 .ShootingForward2 {
-margin: 20px;
-background-color: OliveDrab;
+  margin: 20px;
+  background-color: #30968c;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -48,11 +50,15 @@ background-color: OliveDrab;
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: not-allowed;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 200px;
 }
 
 .ShootingForward:hover {
-background-color: LightGreen;
+  background-color: #42cfc1;
   color: white;
+}
+
+.career-table {
+  text-align: left;
 }

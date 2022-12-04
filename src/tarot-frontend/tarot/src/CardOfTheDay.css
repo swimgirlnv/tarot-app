@@ -2,13 +2,15 @@
  margin: auto;
 }
 
+/*
 .a-h1 {
 text-align: center;
-background-color: #f1ecc4;
-  color: #ca643a;
+background-color: rgb(225,157,95);
+  color: rgb(39,92,123);
   font-size: 20px;
   padding: 10px 60px;
 }
+*/
 
 .CotD {
 place-items: center;
@@ -33,55 +35,4 @@ background-color: Blue;
 .disabled {
 opacity: 0.6;
 cursor: not-allowed;
-}
-
-.Daily {
-margin: auto;
-background-color: RebeccaPurple;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.Daily:hover {
-background-color: Plum;
-  color: white;
-}
-
-.Love {
-margin: auto;
-background-color: Crimson;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.Love:hover {
-background-color: LightPink;
-  color: white;
-}
-
-.Spiritual {
-margin: auto;
-background-color: DarkGoldenRod;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.Spiritual:hover {
-background-color: PaleGoldenRod;
-  color: white;
 }

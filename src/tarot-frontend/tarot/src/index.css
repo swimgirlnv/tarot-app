@@ -17,7 +17,6 @@ code {
   box-sizing: border-box;
 }
 body {
-  background: #92c8c3 !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -32,7 +31,7 @@ body, html, .App, #root, .auth-wrapper {
   height: 100%;
 }
 .navbar-light {
-  background-color: AliceBlue;
+  background-color: rgb(13, 65, 111);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
 }
 .auth-wrapper {

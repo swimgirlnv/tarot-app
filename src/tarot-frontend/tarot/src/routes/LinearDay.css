@@ -1,11 +1,14 @@
 .LinearDayPage {
 height: 150vh;
-background-color: Plum;
+background-color: white;
 }
 
 .content-box {
-columns: 3 auto;
-padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 0px;
 }
 
 .morning {
@@ -28,4 +31,10 @@ background-color: Crimson;
 .Reading:hover {
 background-color: LightPink;
   color: white;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
 }

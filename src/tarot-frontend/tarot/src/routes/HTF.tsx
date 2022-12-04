@@ -281,45 +281,33 @@ return (
     <h1 className="lp-h1"> How they feel </h1>
 
     <div className="content-box-htf">
-    <h2 className="morning"> How they feel about you </h2>
-    <h3 className="cardOne">
-      <img src={cardImageOne} width="175" height="250" />
-                <p />
-                <p>Upright: {cardUprightOne} </p>
-                <p>Reverse: {cardReverseOne} </p>
-                <button className="CotD" disabled={disable1} onClick={handleCard1}> Card 1 </button>
-                <p />
-    </h3>
+          <div className="card">
+            <h2> How they feel about you </h2>
+            <img src={cardImageOne} onClick={handleCard1} width="175" height="250" />
+            <p>Upright: {cardUprightOne} </p>
+            <p>Reverse: {cardReverseOne} </p>
+          </div>
 
-    <h2> How they feel about the relationship </h2>
-    <h3 className="cardTwo">
-          <img src={cardImageTwo} width="175" height="250" />
-                    <p />
-                    <p>Upright: {cardUprightTwo} </p>
-                    <p>Reverse: {cardReverseTwo} </p>
-                    <button className="CotD" disabled={disable2} onClick={handleCard2}> Card 2 </button>
-                    <p />
-    </h3>
+          <div className="card">
+            <h2> How they feel about the relationship </h2>
+            <img src={cardImageTwo} onClick={handleCard2} width="175" height="250" />
+            <p>Upright: {cardUprightTwo} </p>
+            <p>Reverse: {cardReverseTwo} </p>
+          </div>
 
-    <h2> What are their challenges? </h2>
-    <h3 className="cardThree">
-              <img src={cardImageThree} width="175" height="250" />
-                        <p />
-                        <p>Upright: {cardUprightThree} </p>
-                        <p>Reverse: {cardReverseThree} </p>
-                        <button className="CotD" disabled={disable3} onClick={handleCard3}> Card 3 </button>
-                        <p />
-    </h3>
+          <div className="card">
+            <h2> What are their challenges? </h2>
+            <img src={cardImageThree} onClick={handleCard3} width="175" height="250" />
+            <p>Upright: {cardUprightThree} </p>
+            <p>Reverse: {cardReverseThree} </p>
+          </div>
 
-    <h2> Where is this relationship heading? </h2>
-        <h3 className="cardFour">
-                  <img src={cardImageFour} width="175" height="250" />
-                            <p />
-                            <p>Upright: {cardUprightFour} </p>
-                            <p>Reverse: {cardReverseFour} </p>
-                            <button className="CotD" disabled={disable4} onClick={handleCard4}> Card 4 </button>
-                            <p />
-        </h3>
+          <div className="card">
+            <h2> Where is this relationship heading? </h2>
+            <img src={cardImageFour} onClick={handleCard4} width="175" height="250" />
+            <p>Upright: {cardUprightFour} </p>
+            <p>Reverse: {cardReverseFour} </p>
+          </div>
     </div>
 <button className="CotD" disabled={disableReading} onClick={handleReading}> Get your reading! </button>
 <div className="Reading"> {reading} </div>

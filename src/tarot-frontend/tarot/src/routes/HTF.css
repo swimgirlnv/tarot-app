@@ -1,11 +1,14 @@
 .HTFPage {
 height: 150vh;
-background-color: LightPink;
+background-color: white;
 }
 
 .content-box-htf {
-columns: 4 auto;
-padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 0px;
 }
 
 .morning {
@@ -22,4 +25,10 @@ margin: auto;
   text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
 }
