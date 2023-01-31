@@ -15,34 +15,15 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 0px;
 }
 
-.HTF {
-margin: 20px;
-background-color: #c98669;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  width: 200px;
-}
 
-.HTF2 {
-margin: 20px;
+.HTF {
 background-color: #c98669;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  cursor: not-allowed;
-  width: 200px;
+color: white;
+padding: 15px 32px;
+text-align: center;
+font-size: 16px;
+transition-duration: 0.4s;
+cursor: pointer;
 }
 
 .HTF:hover {
@@ -50,6 +31,14 @@ background-color: #f5c1ab;
   color: white;
 }
 
-.love-table {
-  text-align: left;
+.cards {
+  padding: 10px;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 20px;
 }

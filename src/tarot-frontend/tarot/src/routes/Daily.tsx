@@ -38,7 +38,7 @@ return (
       <h1 className="dp-h1">Daily Tarot Spreads</h1>
 
       <div className="page-container">
-        <div>
+        <div className="cards">
           <Card maxW="sm">
             <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="LinearDay" 
@@ -47,7 +47,7 @@ return (
             <CardBody>A simple three card spread that will help guide you through each part of the day.</CardBody>
           </Card>
         </div>
-        <div>
+        <div className="cards">
           <Card maxW="sm">
           <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="LinearDay" 
@@ -56,7 +56,7 @@ return (
             <CardBody>Looking for insight on your dreams? This spread will help interpret the message your dream conveys.</CardBody>
           </Card>
         </div>
-        <div>
+        <div className="cards">
         <Card maxW="sm">
             <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="LinearDay" 
@@ -65,7 +65,7 @@ return (
             <CardBody>If faced with a difficult situation or problem, this spread will help you trust your instincts.</CardBody>
           </Card>
         </div>
-        <div>
+        <div className="cards">
           <Card maxW="sm">
           <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="LinearDay" 

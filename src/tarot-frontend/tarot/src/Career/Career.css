@@ -43,3 +43,7 @@ background-color: white;
   flex-wrap: wrap;
   padding: 20px;
 }
+
+.cards {
+  padding: 10px;
+}

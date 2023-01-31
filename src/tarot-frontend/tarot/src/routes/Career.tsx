@@ -17,7 +17,7 @@ return (
     <div className="CareerPage">
       <h1 className="cp-h1">Career Tarot Spreads</h1>
       <div className="page-container">
-        <div>
+        <div className="cards">
           <Card maxW="sm">
             <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="ShootingForward" 
@@ -27,7 +27,7 @@ return (
             This tarot spread can help clarify how you might attain your goals.</CardBody>
           </Card>
         </div>
-        <div>
+        <div className="cards">
           <Card maxW="sm">
           <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="ShootingForward" 
