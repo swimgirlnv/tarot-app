@@ -1,5 +1,6 @@
 import './TopBar.css';
 import { useNavigate } from "react-router-dom";
+import TarotSpreads from './TarotSpreads';
 
 type Props = {
   userName?: string,
@@ -11,18 +12,6 @@ function TopBar(props: Props) {
 
  let navigate = useNavigate();
 
-  const handleCareer = () => {
-      navigate("/Career");
-  }
-
-  const handleDaily = () => {
-      navigate("/Daily");
-  }
-
-  const handleLove = () => {
-      navigate("/Love");
-  }
-
   const handleJournal = () => {
         navigate("/Journal");
     }
@@ -30,17 +19,7 @@ function TopBar(props: Props) {
   return (
         <div className="top-bar">
         <a className="site-title" href="/"><img src="https://i.imgur.com/9fTXRNl.png" width="80" height="80"/></a>
-        <div className="dropdown">
-        <button className="dropbtn">Tarot Spreads</button>
-          <div className="dropdown-content">
-            <button className="Career" onClick={handleCareer}> Career </button>
-
-              <button className="Daily" onClick={handleDaily}> Daily </button>
-
-              <button className="Love" onClick={handleLove}> Love </button>
-
-          </div>
-        </div>
+        <TarotSpreads />
         <div className="dropdown">
             <button className="dropbtn" onClick={handleJournal}>Journal</button>
         </div>

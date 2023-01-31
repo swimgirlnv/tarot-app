@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import '../Daily/Daily.css';
 import axios from "axios";
 
+import { Card, CardHeader, CardBody, CardFooter, Button , Image , Text} from '@chakra-ui/react'
+
+
 import LinearDay from './LinearDay';
 
 
@@ -29,34 +32,49 @@ const handleDM = () => {
     navigate("/DreamMessages");
 }
 
-
-
 return (
     <div className="DailyPage text-center">
 
       <h1 className="dp-h1">Daily Tarot Spreads</h1>
 
-      <table className="daily-table">
-        <tr>
-          <td><button className="LinearDay" onClick={handleLinearDay}> Linear Day </button></td>
-          <td>A simple three card spread that will help guide you through each part of the day.</td>
-        </tr>
-
-        <tr>
-          <td><button className="LinearDay" onClick={handleDM}> Dream Messages </button></td>
-          <td>Looking for insight on your dreams? This spread will help interpret the message your dream conveys.</td>
-        </tr>
-
-        <tr>
-          <td><button className="LinearDay2"> Trust your Gut </button></td>
-          <td>If faced with a difficult situation or problem, this spread will help you trust your instincts.</td>
-        </tr>
-
-        <tr>
-          <td><button className="LinearDay2"> Need Advice? </button></td>
-          <td>A more in depth exploration of advice from your spiritual computer.</td>
-        </tr>
-      </table>
+      <div className="page-container">
+        <div>
+          <Card maxW="sm">
+            <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
+            <CardHeader as={Button} className="LinearDay" 
+            onClick={handleLinearDay} bgColor="#b07721" borderRadius='0'>
+              <Text>Linear Day</Text></CardHeader>
+            <CardBody>A simple three card spread that will help guide you through each part of the day.</CardBody>
+          </Card>
+        </div>
+        <div>
+          <Card maxW="sm">
+          <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
+            <CardHeader as={Button} className="LinearDay" 
+            onClick={handleDM} bgColor="#b07721" borderRadius='0'>
+              <Text>Dream Messages</Text></CardHeader>
+            <CardBody>Looking for insight on your dreams? This spread will help interpret the message your dream conveys.</CardBody>
+          </Card>
+        </div>
+        <div>
+        <Card maxW="sm">
+            <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
+            <CardHeader as={Button} className="LinearDay" 
+             bgColor="#b07721" borderRadius='0'>
+              <Text>Trust Your Gut</Text></CardHeader>
+            <CardBody>If faced with a difficult situation or problem, this spread will help you trust your instincts.</CardBody>
+          </Card>
+        </div>
+        <div>
+          <Card maxW="sm">
+          <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
+            <CardHeader as={Button} className="LinearDay" 
+             bgColor="#b07721" borderRadius='0'>
+              <Text>Need Advice?</Text></CardHeader>
+            <CardBody>A more in depth exploration of advice from your spiritual computer.</CardBody>
+          </Card>
+        </div>
+      </div>
 
     </div>
 )

@@ -2,7 +2,6 @@
 text-align: center;
 height: 100vh;
 background-color: white;
-
 }
 
 .cp-h1 {
@@ -23,35 +22,13 @@ background-color: white;
 }
 
 .ShootingForward {
-  margin: 20px;
   background-color: #30968c;
-  border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 8px;
   text-align: center;
-  text-decoration: none;
   font-size: 16px;
   transition-duration: 0.4s;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 200px;
-}
-
-.ShootingForward2 {
-  margin: 20px;
-  background-color: #30968c;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  cursor: not-allowed;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 200px;
+  cursor: pointer;  
 }
 
 .ShootingForward:hover {
@@ -59,6 +36,10 @@ background-color: white;
   color: white;
 }
 
-.career-table {
-  text-align: left;
+.page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 20px;
 }
