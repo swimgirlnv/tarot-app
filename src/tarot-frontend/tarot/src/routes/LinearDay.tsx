@@ -5,6 +5,8 @@ import axios from "axios";
 import './LinearDay.css';
 import Daily from './Daily';
 
+import { Card, CardHeader, CardBody, CardFooter, Button , Image } from '@chakra-ui/react'
+
 function LinearDay(props: any){
   const [loaded, setLoaded] = useState(false);
 
@@ -223,30 +225,40 @@ return (
       <h1 className="dp-h1"> Linear Day </h1>
 
     <div className="content-box">
+    <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Morning</CardHeader>
+          <Image className="clickable" alt="morning card" src={cardImageOne} onClick={handleCard1} height="250" maxWidth='175' />
+          <CardBody><p>Upright: {cardUprightOne} </p>
+        <p>Reverse: {cardReverseOne} </p></CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300" >
+          <CardHeader>Afternoon</CardHeader>
+          <Image className="clickable" alt="afternoon card" src={cardImageTwo} onClick={handleCard2} height="250" maxWidth='175' />
+          <CardBody><p>Upright: {cardUprightTwo} </p>
+        <p>Reverse: {cardReverseTwo} </p></CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Evening</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageThree} onClick={handleCard3} height="250"  maxWidth='175' />
+          <CardBody><p>Upright: {cardUprightThree} </p>
+        <p>Reverse: {cardReverseThree} </p></CardBody>
+        </Card>
+      </div>
 
-      <div className="card">
-        <h2> Morning </h2>
-        <img src={cardImageOne} onClick={handleCard1} width="175" height="250" />
-        <p>Upright: {cardUprightOne} </p>
-        <p>Reverse: {cardReverseOne} </p>
-      </div>
-    
-      <div className="card">
-        <h2> Afternoon </h2>
-        <img src={cardImageTwo} onClick={handleCard2} width="175" height="250" />
-        <p>Upright: {cardUprightTwo} </p>
-        <p>Reverse: {cardReverseTwo} </p>
-      </div>
-    
-      <div className="card">
-        <h2> Evening </h2>
-        <img src={cardImageThree} onClick={handleCard3} width="175" height="250" />
-        <p>Upright: {cardUprightThree} </p>
-        <p>Reverse: {cardReverseThree} </p>
-      </div>
+     
     </div>
-<button className="CotD" onClick={handleReading}> Get your reading! </button>
-<div className="Reading"> {reading} </div>
+    <div className="reading">
+      <Card maxW='lg'>
+        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
+        <CardBody>{reading}</CardBody>
+      </Card>
+    </div>
+
 </div>
 )
 }

@@ -9,32 +9,25 @@ background-color: white;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 0px;
+  padding: 20px;
 }
 
 .morning {
 margin-top: 0px;
 }
 
-.Reading {
-margin: auto;
-background-color: Crimson;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.Reading:hover {
-background-color: LightPink;
-  color: white;
+.reading {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 .card {
   display: flex;
   flex-direction: column;
   max-width: 170px;
+}
+
+.clickable {
+  cursor: pointer;
 }
