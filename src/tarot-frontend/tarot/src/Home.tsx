@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useToken from './useToken';
 import { useJwt } from 'react-jwt';
 import CardOfTheDay from './CardOfTheDay';
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, AlertIcon, Alert } from '@chakra-ui/react'
 
 function Home() {
   const {token, setToken} = useToken();
@@ -15,6 +15,7 @@ function Home() {
       <div className="App text-center">
 
         <h1 className="a-h1">Hello, {decodedToken?.given_name}! Welcome to AI Tarot Readings!</h1>
+        
         <div className="grid-container">
           <div>
             <Card maxW="sm">

@@ -27,6 +27,7 @@ import { useJwt } from 'react-jwt';
 import Login from './Login';
 import axios from 'axios';
 import * as Constants from './Constants';
+import { Alert, AlertIcon } from '@chakra-ui/react';
 
 function App() {
   const {token, setToken} = useToken();
@@ -42,6 +43,10 @@ function App() {
     return (
     <>
      <Router>
+        <Alert status='warning'>
+          <AlertIcon />
+          Please be aware: Website is under construction! Some features not yet available.
+        </Alert>
           <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
 
          <Routes>
