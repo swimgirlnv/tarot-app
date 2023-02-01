@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useToken from './useToken';
 import { useJwt } from 'react-jwt';
 import CardOfTheDay from './CardOfTheDay';
-import { Card, CardHeader, CardBody, CardFooter, AlertIcon, Alert } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, AlertIcon, Alert, Image } from '@chakra-ui/react'
 
 function Home() {
   const {token, setToken} = useToken();
@@ -29,8 +29,7 @@ function Home() {
               /></a>
               </Card>
           </div>
-
-          
+        
           <div>
             <Card maxW="sm">
               <a href="/Daily">

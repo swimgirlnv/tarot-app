@@ -6,6 +6,7 @@ import './LinearDay.css';
 import Daily from './Daily';
 
 import { Card, CardHeader, CardBody, CardFooter, Button , Image } from '@chakra-ui/react'
+import FlipCardPrompt from '../SiteComponents/FlipCardPrompt';
 
 function LinearDay(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -223,7 +224,10 @@ const [disable3, setDisable3] = React.useState(false);
 return (
     <div className="LinearDayPage">
       <h1 className="dp-h1"> Linear Day </h1>
-
+      <div>
+        <FlipCardPrompt></FlipCardPrompt>
+      </div>
+      
     <div className="content-box">
     <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
@@ -253,7 +257,7 @@ return (
      
     </div>
     <div className="reading">
-      <Card maxW='lg'>
+      <Card maxW='lg' minW='lg' boxShadow='none'>
         <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
         <CardBody>{reading}</CardBody>
       </Card>
