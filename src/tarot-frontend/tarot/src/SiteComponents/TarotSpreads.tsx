@@ -9,7 +9,11 @@ import {
   Button,
 } from '@chakra-ui/react'
 
+import { menuAnatomy } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(menuAnatomy.keys)
 
 function TarotSpreads() {
 
@@ -27,10 +31,9 @@ function TarotSpreads() {
       navigate("/Love");
   }
 
-
   return (
         <Menu>
-        <MenuButton as={Button}>Tarot Spreads</MenuButton>
+        <MenuButton as={Button} variant="primary">Tarot Spreads</MenuButton>
           <MenuList>
             <MenuItem className="Career" onClick={handleCareer}>Career</MenuItem>
             <MenuItem className="Daily" onClick={handleDaily}>Daily</MenuItem>

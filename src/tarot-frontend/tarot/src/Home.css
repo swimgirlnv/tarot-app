@@ -97,8 +97,11 @@ background-color: PaleGoldenRod;
   flex: 1;
   min-height: 100vh;
 }
-.item2 {
-  grid-area: footer;
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   background-color: antiquewhite;
   padding: 20px;
   width: 100%;

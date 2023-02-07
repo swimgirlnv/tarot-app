@@ -4,12 +4,25 @@ import './Home.css';
 import { useNavigate } from "react-router-dom";
 import useToken from './useToken';
 import { useJwt } from 'react-jwt';
-import CardOfTheDay from './CardOfTheDay';
-import { Card, CardHeader, CardBody, CardFooter, AlertIcon, Alert, Image } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, AlertIcon, Alert, Image, Button } from '@chakra-ui/react'
 
 function Home() {
   const {token, setToken} = useToken();
   const {decodedToken, isExpired}: {decodedToken: any, isExpired: boolean} = useJwt(token);
+
+  let navigate = useNavigate();
+
+  const handleCareer = () => {
+    navigate("/Career");
+  }
+
+  const handleDaily = () => {
+    navigate("/Daily");
+  }
+
+  const handleLove = () => {
+      navigate("/Love");
+  }
 
   return (
       <div className="App text-center">
@@ -18,47 +31,59 @@ function Home() {
         
         <div className="grid-container">
           <div>
-            <Card maxW="sm">
-              <a href="/Career">
-              <img 
-              alt="career card"
-              className="background-card" 
-              src="https://i.imgur.com/KvND6OK.png" 
-              width="300px" 
-              height="500px"
-              /></a>
-              </Card>
+            <Card>
+              <CardBody 
+              as={Button} 
+              onClick={handleCareer}
+              padding="0px"
+              width="300px"
+              height="610px">
+                <Image 
+                alt="career card"
+                className="background-card" 
+                src="https://i.imgur.com/KvND6OK.png" 
+                width="300px" 
+                height="610px"    
+                />
+              </CardBody>
+            </Card>
           </div>
         
           <div>
-            <Card maxW="sm">
-              <a href="/Daily">
-              <img 
+            <Card>
+              <CardBody
+              as={Button} 
+              onClick={handleDaily}
+              padding="0px"
+              width="300px"
+              height="610px">
+              <Image 
               alt="daily card"
               className="background-card" 
               src="https://i.imgur.com/2wMCZSF.png"
-               width="300px" height="500px"></img>
-               </a>
+               width="300px" height="610px"></Image>
+               </CardBody>
             </Card>
           </div>
           
           
           <div>
-            <Card maxW="sm">
-              <a href="/Love">
+            <Card>
+              <CardBody
+              as={Button} 
+              onClick={handleLove}
+              padding="0px"
+              width="300px"
+              height="610px">
               <img 
               alt="love card"
               className="background-card" 
               src="https://i.imgur.com/zcHaarG.png" 
-              width="300px" height="500px"></img>
-              </a>
+              width="300px" height="610px"></img>
+              </CardBody>
             </Card>
           </div>
             
-        </div>
-
-        <div className="item2">
-          <p>made with love in Incline Village</p>
         </div>
 
         </div>
