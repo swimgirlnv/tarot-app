@@ -2,36 +2,43 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import axios from "axios";
-import './HTF.css';
+import '../spread.css';
+import { Card, CardHeader, CardBody, Button , Image } from '@chakra-ui/react'
+import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
 
-function HTF(props: any){
+function DreamMessages(props: any){
   const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
   const [cardIDTwo, setCardIDTwo] = useState("22")
   const [cardIDThree, setCardIDThree] = useState("22")
   const [cardIDFour, setCardIDFour] = useState("22")
+  const [cardIDFive, setCardIDFive] = useState("22")
 
 
   const [cardNameOne, setCardNameOne] = useState("")
     const [cardNameTwo, setCardNameTwo] = useState("")
     const [cardNameThree, setCardNameThree] = useState("")
     const [cardNameFour, setCardNameFour] = useState("")
+    const [cardNameFive, setCardNameFive] = useState("")
 
   const [cardUprightOne, setCardUprightOne] = useState("?")
   const [cardUprightTwo, setCardUprightTwo] = useState("?")
   const [cardUprightThree, setCardUprightThree] = useState("?")
   const [cardUprightFour, setCardUprightFour] = useState("?")
+  const [cardUprightFive, setCardUprightFive] = useState("?")
 
   const [cardReverseOne, setCardReverseOne] = useState("?")
   const [cardReverseTwo, setCardReverseTwo] = useState("?")
   const [cardReverseThree, setCardReverseThree] = useState("?")
   const [cardReverseFour, setCardReverseFour] = useState("?")
+  const [cardReverseFive, setCardReverseFive] = useState("?")
 
   const [cardImageOne, setCardImageOne] = useState("https://i.imgur.com/MyvuLmb.png")
   const [cardImageTwo, setCardImageTwo] = useState("https://i.imgur.com/MyvuLmb.png")
   const [cardImageThree, setCardImageThree] = useState("https://i.imgur.com/MyvuLmb.png")
   const [cardImageFour, setCardImageFour] = useState("https://i.imgur.com/MyvuLmb.png")
+  const [cardImageFive, setCardImageFive] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const [reading, setReading] = useState("")
 
@@ -39,7 +46,7 @@ function HTF(props: any){
 
   useEffect(() => {
     if (loaded) {
-        axios.get("/getCards/4")
+        axios.get("/getCards/5")
                 // @ts-ignore
                 .then(response => {
                   console.log("this is response.data for getCards: " + response.data);
@@ -51,6 +58,7 @@ function HTF(props: any){
                   setCardIDTwo(response.data[1]);
                   setCardIDThree(response.data[2]);
                   setCardIDFour(response.data[3]);
+                  setCardIDFive(response.data[4]);
 
                   console.log(cardIDOne);
                 })
@@ -253,11 +261,58 @@ axios.get("/getCardReverse/" + cardIDFour)
 
 }
 
+const handleCard5 = () => {
+
+axios.get("/getCardName/" + cardIDFive)
+        // @ts-ignore
+        .then(response => {
+          console.log("this is response.data for getCard: " + response.data);
+          setCardNameFive(response.data);
+        })
+        // @ts-ignore
+        .catch(error => {
+          console.log(error);
+        });
+
+axios.get("/getCardImage/" + cardIDFive)
+              // @ts-ignore
+              .then(response => {
+              console.log("this is response.data for getCardImage: " + response.data);
+              setCardImageFive(response.data);
+              })
+              //@ts-ignore
+              .catch(error => {
+              console.log(error);
+              });
+
+axios.get("/getCardUpright/" + cardIDFive)
+              // @ts-ignore
+              .then(response => {
+              console.log("this is response.data for getCardUpright: " + response.data);
+              setCardUprightFive(response.data);
+              })
+              //@ts-ignore
+              .catch(error => {
+              console.log(error);
+              });
+
+axios.get("/getCardReverse/" + cardIDFive)
+              // @ts-ignore
+              .then(response => {
+              console.log("this is response.data for getCardReverse: " + response.data);
+              setCardReverseFive(response.data);
+              })
+              //@ts-ignore
+              .catch(error => {
+              console.log(error);
+              });
+
+}
 
 const handleReading = () => {
 
-axios.get("/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
-+ cardNameThree + "/" + cardNameFour)
+axios.get("/getReadingDreamMessages/" + cardNameOne + "/" + cardNameTwo + "/"
++ cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
         .then(response => {
           console.log("this is response.data for getReading: " + response.data);
@@ -273,46 +328,67 @@ const [disable1, setDisable1] = React.useState(false);
 const [disable2, setDisable2] = React.useState(false);
 const [disable3, setDisable3] = React.useState(false);
 const [disable4, setDisable4] = React.useState(false);
+const [disable5, setDisable5] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
 return (
-    <div className="HTFPage">
+    <div className="spread-page">
 
-    <h1 className="lp-h1"> How they feel </h1>
+        <h1 className="dp-h1"> Dream Messages </h1>
+        <div>
+          <FlipCardPrompt />
+        </div>
 
-    <div className="content-box-htf">
-          <div className="card">
-            <h2> How they feel about you </h2>
-            <img src={cardImageOne} onClick={handleCard1} width="175" height="250" />
-            <p>Upright: {cardUprightOne} </p>
-            <p>Reverse: {cardReverseOne} </p>
+        <div className="content-box">
+          <div>
+            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+              <CardHeader>Past Event</CardHeader>
+              <Image className="clickable" alt="morning card" src={cardImageOne} onClick={handleCard1} height="250" maxWidth='175' />
+              <CardBody><p>Upright: {cardUprightOne} </p>
+                <p>Reverse: {cardReverseOne} </p></CardBody>
+            </Card>
           </div>
-
-          <div className="card">
-            <h2> How they feel about the relationship </h2>
-            <img src={cardImageTwo} onClick={handleCard2} width="175" height="250" />
-            <p>Upright: {cardUprightTwo} </p>
-            <p>Reverse: {cardReverseTwo} </p>
+          <div>
+            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+              <CardHeader>Dream Theme</CardHeader>
+              <Image className="clickable" alt="morning card" src={cardImageTwo} onClick={handleCard2} height="250" maxWidth='175' />
+              <CardBody><p>Upright: {cardUprightTwo} </p>
+                <p>Reverse: {cardReverseTwo} </p></CardBody>
+            </Card>
           </div>
-
-          <div className="card">
-            <h2> What are their challenges? </h2>
-            <img src={cardImageThree} onClick={handleCard3} width="175" height="250" />
-            <p>Upright: {cardUprightThree} </p>
-            <p>Reverse: {cardReverseThree} </p>
+          <div>
+            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+              <CardHeader>Waking life block</CardHeader>
+              <Image className="clickable" alt="morning card" src={cardImageThree} onClick={handleCard3} height="250" maxWidth='175' />
+              <CardBody><p>Upright: {cardUprightThree} </p>
+                <p>Reverse: {cardReverseThree} </p></CardBody>
+            </Card>
           </div>
-
-          <div className="card">
-            <h2> Where is this relationship heading? </h2>
-            <img src={cardImageFour} onClick={handleCard4} width="175" height="250" />
-            <p>Upright: {cardUprightFour} </p>
-            <p>Reverse: {cardReverseFour} </p>
+          <div>
+            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+              <CardHeader>Message</CardHeader>
+              <Image className="clickable" alt="morning card" src={cardImageFour} onClick={handleCard4} height="250" maxWidth='175' />
+              <CardBody><p>Upright: {cardUprightFour} </p>
+                <p>Reverse: {cardReverseFour} </p></CardBody>
+            </Card>
+          </div>
+          <div>
+            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+              <CardHeader>Lesson</CardHeader>
+              <Image className="clickable" alt="morning card" src={cardImageFive} onClick={handleCard5} height="250" maxWidth='175' />
+              <CardBody><p>Upright: {cardUprightFive} </p>
+                <p>Reverse: {cardReverseFive} </p></CardBody>
+            </Card>
           </div>
     </div>
-<button className="CotD" disabled={disableReading} onClick={handleReading}> Get your reading! </button>
-<div className="Reading"> {reading} </div>
+    <div className="reading">
+      <Card maxW='lg' minW='lg' boxShadow='none'>
+        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
+        <CardBody>{reading}</CardBody>
+      </Card>
+    </div>
 </div>
 )
 }
 
-export default HTF;
+export default DreamMessages;

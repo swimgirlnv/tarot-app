@@ -1,12 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 // @ts-ignore
 import axios from "axios";
-import './LinearDay.css';
-import Daily from './Daily';
+import '../spread.css';
 
-import { Card, CardHeader, CardBody, CardFooter, Button , Image } from '@chakra-ui/react'
-import FlipCardPrompt from '../SiteComponents/FlipCardPrompt';
+import { Card, CardHeader, CardBody, Button , Image } from '@chakra-ui/react'
+import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
 
 function LinearDay(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -225,7 +223,7 @@ return (
     <div className="LinearDayPage">
       <h1 className="dp-h1"> Linear Day </h1>
       <div>
-        <FlipCardPrompt></FlipCardPrompt>
+        <FlipCardPrompt />
       </div>
       
     <div className="content-box">

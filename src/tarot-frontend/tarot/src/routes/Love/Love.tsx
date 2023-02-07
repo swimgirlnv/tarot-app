@@ -4,7 +4,6 @@ import '../Love/Love.css';
 import axios from "axios";
 import { Card, CardHeader, CardBody, CardFooter, Button , Image , Text} from '@chakra-ui/react'
 
-import HTF from './HTF';
 
 
 function Love(props: any){

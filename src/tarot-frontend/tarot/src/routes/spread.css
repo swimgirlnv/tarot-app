@@ -1,6 +1,7 @@
-.LinearDayPage {
-height: 150vh;
-background-color: white;
+.spread-page {
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
 }
 
 .content-box {

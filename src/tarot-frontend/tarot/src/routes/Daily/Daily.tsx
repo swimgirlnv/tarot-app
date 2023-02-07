@@ -6,9 +6,6 @@ import axios from "axios";
 import { Card, CardHeader, CardBody, CardFooter, Button , Image , Text} from '@chakra-ui/react'
 
 
-import LinearDay from './LinearDay';
-
-
 function Daily(props: any){
 
 const config = {
@@ -19,10 +16,6 @@ const config = {
   };
 
 let navigate = useNavigate();
-
-   const [cardIDOne, setCardIDOne] = useState("")
-   const [cardIDTwo, setCardIDTwo] = useState("")
-   const [cardIDThree, setCardIDThree] = useState("")
 
 const handleLinearDay = () => {
     navigate("/LinearDay");

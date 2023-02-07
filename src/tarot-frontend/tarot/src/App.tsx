@@ -11,15 +11,15 @@ import { BrowserRouter as Router,
 
 import Home from './Home';
 import TopBar from './SiteComponents/TopBar';
-import Love from './routes/Love';
-import Career from './routes/Career';
-import Daily from './routes/Daily';
-import Journal from './routes/Journal';
+import Love from './routes/Love/Love';
+import Career from './routes/Career/Career';
+import Daily from './routes/Daily/Daily';
+import Journal from './routes/Journal/Journal';
 
-import ShootingForward from './routes/ShootingForward';
-import LinearDay from './routes/LinearDay';
-import DreamMessages from './routes/DreamMessages';
-import HTF from './routes/HTF';
+import ShootingForward from './routes/Career/ShootingForward';
+import LinearDay from './routes/Daily/LinearDay';
+import DreamMessages from './routes/Daily/DreamMessages';
+import HTF from './routes/Love/HTF';
 
 
 import useToken from './useToken';

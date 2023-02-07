@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import axios from "axios";
-import './DreamMessages.css';
+import '../spread.css';
+import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
+import { Button, Card, CardBody, CardHeader , Image } from '@chakra-ui/react';
 
-function DreamMessages(props: any){
+function ShootingForward(props: any){
   const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
@@ -114,6 +116,13 @@ axios.get("/getCardReverse/" + cardIDOne)
               .catch(error => {
               console.log(error);
               });
+
+              return (
+                <div>
+                  <p>Upright: {cardUprightOne} </p>
+                  <p>Reverse: {cardReverseOne} </p>
+                </div>
+              )
 }
 
 const handleCard2 = () => {
@@ -309,7 +318,7 @@ axios.get("/getCardReverse/" + cardIDFive)
 
 const handleReading = () => {
 
-axios.get("/getReadingDreamMessages/" + cardNameOne + "/" + cardNameTwo + "/"
+axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
         .then(response => {
@@ -329,51 +338,76 @@ const [disable4, setDisable4] = React.useState(false);
 const [disable5, setDisable5] = React.useState(false);
 const [disableReading, setDisableReading] = React.useState(false);
 
+
 return (
-    <div className="DreamMessagesPage">
-
-        <h1 className="dp-h1"> Dream Messages </h1>
-
-        <div className="content-box-sf">
-          <div className="card">
-            <h2> Past Event </h2>
-            <img src={cardImageOne} onClick={handleCard1} width="175" height="250" />
-            <p>Upright: {cardUprightOne} </p>
-            <p>Reverse: {cardReverseOne} </p>
-          </div>
-
-          <div className="card">
-            <h2> Dream Theme </h2>
-            <img src={cardImageTwo} onClick={handleCard2} width="175" height="250" />
-            <p>Upright: {cardUprightTwo} </p>
-            <p>Reverse: {cardReverseTwo} </p>
-          </div>
-
-          <div className="card">
-            <h2> Waking life block </h2>
-            <img src={cardImageThree} onClick={handleCard3} width="175" height="250" />
-            <p>Upright: {cardUprightThree} </p>
-            <p>Reverse: {cardReverseThree} </p>
-          </div>
-
-          <div className="card">
-            <h2> Message </h2>
-            <img src={cardImageFour} onClick={handleCard4} width="175" height="250" />
-            <p>Upright: {cardUprightFour} </p>
-            <p>Reverse: {cardReverseFour} </p>
-          </div>
-
-          <div className="card">
-            <h2> Lesson</h2>
-            <img src={cardImageFive} onClick={handleCard5} width="175" height="250" />
-            <p>Upright: {cardUprightFive} </p>
-            <p>Reverse: {cardReverseFive} </p>
-          </div>
+    <div className="ShootingForwardPage">
+    <h1 className="cp-h1"> Shooting Forward </h1>
+    <div>
+        <FlipCardPrompt />
+      </div>
+      
+    <div className="content-box">
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Dream Job</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageOne} onClick={handleCard1} height="250"  maxWidth='175' />
+          <CardBody>
+          <p>Upright: {cardUprightOne} </p>
+          <p>Reverse: {cardReverseOne} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>How to get there</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageTwo} onClick={handleCard2} height="250"  maxWidth='175' />
+          <CardBody>
+          <p>Upright: {cardUprightTwo} </p>
+          <p>Reverse: {cardReverseTwo} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Qualities you bring</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageThree} onClick={handleCard3} height="250"  maxWidth='175' />
+          <CardBody>
+          <p>Upright: {cardUprightThree} </p>
+          <p>Reverse: {cardReverseThree} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Where to find help</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageFour} onClick={handleCard4} height="250"  maxWidth='175' />
+          <CardBody>
+          <p>Upright: {cardUprightFour} </p>
+          <p>Reverse: {cardReverseFour} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>What needs attention</CardHeader>
+          <Image className="clickable" alt="evening card" src={cardImageFive} onClick={handleCard5} height="250"  maxWidth='175' />
+          <CardBody>
+          <p>Upright: {cardUprightFive} </p>
+          <p>Reverse: {cardReverseFive} </p>
+          </CardBody>
+        </Card>
+      </div>
     </div>
-<button className="CotD" disabled={disableReading} onClick={handleReading}> Get your reading! </button>
-<div className="Reading"> {reading} </div>
+
+    <div className="reading">
+      <Card maxW='lg' minW='lg' boxShadow='none'>
+        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
+        <CardBody>{reading}</CardBody>
+      </Card>
+    </div>
+
 </div>
 )
 }
 
-export default DreamMessages;
+export default ShootingForward;
