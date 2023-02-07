@@ -1,7 +1,8 @@
 .CareerPage {
 text-align: center;
-height: 100vh;
+min-height: 100vh;
 background-color: white;
+position: relative;
 }
 
 .cp-h1 {
@@ -42,6 +43,7 @@ background-color: white;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 20px;
+  height: 100%;
 }
 
 .cards {

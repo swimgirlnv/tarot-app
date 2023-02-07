@@ -1,8 +1,8 @@
 .LovePage {
-text-align: center;
-height: 100vh;
-background-color: white;
-
+  text-align: center;
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
 }
 
 .lp-h1 {
@@ -41,4 +41,6 @@ background-color: #f5c1ab;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 20px;
+  min-height: 100vh;
+  position: relative;
 }

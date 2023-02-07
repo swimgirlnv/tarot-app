@@ -53,3 +53,14 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}

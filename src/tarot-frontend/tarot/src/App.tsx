@@ -29,6 +29,7 @@ import axios from 'axios';
 import * as Constants from './Constants';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 import './Home.css';
+import Footer from './SiteComponents/Footer';
 
 function App() {
   const {token, setToken} = useToken();
@@ -61,9 +62,7 @@ function App() {
            <Route path="daily" element={<Daily />} />
                       <Route path="linearDay" element={<LinearDay />} />
          </Routes>
-         <div className="footer">
-          <p>made with love in Incline Village</p>
-        </div>
+         <Footer></Footer>
      </Router>
      </>
     );
