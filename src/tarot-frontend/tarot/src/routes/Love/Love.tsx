@@ -17,10 +17,6 @@ const config = {
 
 let navigate = useNavigate();
 
-   const [cardIDOne, setCardIDOne] = useState("")
-   const [cardIDTwo, setCardIDTwo] = useState("")
-   const [cardIDThree, setCardIDThree] = useState("")
-
 const handleHTF = () => {
     navigate("/HTF");
 }

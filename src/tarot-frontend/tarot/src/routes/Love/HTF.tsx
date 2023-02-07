@@ -4,7 +4,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../spread.css';
 import { Card, CardHeader, CardBody, Button , Image } from '@chakra-ui/react'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+} from '@chakra-ui/react'
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 function HTF(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -271,6 +278,9 @@ axios.get("/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
         });
 }
 
+let navigate = useNavigate();
+
+
 const [disable1, setDisable1] = React.useState(false);
 const [disable2, setDisable2] = React.useState(false);
 const [disable3, setDisable3] = React.useState(false);
@@ -279,8 +289,24 @@ const [disableReading, setDisableReading] = React.useState(false);
 
 return (
     <div className="spread-page">
+    <div className='lp-h1'>
+    <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+      <BreadcrumbItem>
+        <BreadcrumbLink onClick={() => navigate("/")}>Home</BreadcrumbLink>
+      </BreadcrumbItem>
 
-    <h1 className="lp-h1"> How they feel </h1>
+      <BreadcrumbItem>
+        <BreadcrumbLink onClick={() => navigate("/Love")}>Love Spreads</BreadcrumbLink>
+      </BreadcrumbItem>
+
+      <BreadcrumbItem isCurrentPage>
+        <BreadcrumbLink>How They Feel</BreadcrumbLink>
+      </BreadcrumbItem>
+    </Breadcrumb>
+    </div>
+    
+
+
     <div>
         <FlipCardPrompt />
     </div>
