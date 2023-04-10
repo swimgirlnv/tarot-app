@@ -1,6 +1,25 @@
 import './TopBar.css';
 import { useNavigate } from "react-router-dom";
 import TarotSpreads from './TarotSpreads';
+import {Button} from '@chakra-ui/react';
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
+
+const brandPrimary = defineStyle({
+  background: 'orange.500',
+  color: 'white',
+  fontFamily: 'serif',
+  fontWeight: 'normal',
+
+  // let's also provide dark mode alternatives
+  _dark: {
+    background: 'orange.300',
+    color: 'orange.800',
+  }
+})
+
+export const buttonTheme = defineStyleConfig({
+  variants: { brandPrimary },
+})
 
 type Props = {
   userName?: string,
@@ -18,15 +37,19 @@ function TopBar(props: Props) {
 
   return (
         <div className="top-bar">
-        <a className="site-title" href="/"><img src="https://i.imgur.com/9fTXRNl.png" width="80" height="80"/></a>
-        <TarotSpreads />
-        <div className="dropdown">
-            <button className="dropbtn" onClick={handleJournal}>Journal</button>
-        </div>
-        <div className="user">
-        You are communing with the spirits as <b>{props.userName}</b>.
-        <button className="logout-button" onClick={props.onLogout}>Log Out</button>
-        </div>
+          <div className='sizing-div'>
+            <a className="site-title" href="/"><img src="https://i.imgur.com/9fTXRNl.png" width="80" height="80"/></a>
+          </div>
+          <div className='sizing-div'>
+            <Button variant="brandPrimary"><TarotSpreads /></Button>
+          </div>
+          <div className='sizing-div'>
+            <Button variant="brandPrimary" onClick={handleJournal}>Journal</Button>
+          </div>
+          <div className='sizing-div'>
+            <p>You are communing with the spirits as</p><b>{props.userName}</b>.
+            <Button variant="brandPrimary" onClick={props.onLogout}>Log Out</Button>
+          </div>
         </div>
   );
 }
