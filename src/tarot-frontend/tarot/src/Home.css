@@ -191,7 +191,7 @@ background-color: PaleGoldenRod;
   margin: 0;
 }
 .logo-img {
-  max-width: 250px;
+  max-width: 400px;
   max-height: 100%;
   margin: 0;
 }
@@ -200,6 +200,7 @@ background-color: PaleGoldenRod;
   color: white;
   padding: 50px;
   text-align: center;
+  max-width: 70%;
 }
 
 .hero h1 {

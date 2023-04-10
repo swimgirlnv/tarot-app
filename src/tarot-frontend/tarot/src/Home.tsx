@@ -39,7 +39,7 @@ function Home(props: Props) {
             <img className="logo-img" alt="logo" src="https://i.imgur.com/9fTXRNl.png"/>
           </div>
           <div className="hero">
-            <h1>{props.userName}, Ready to Discover the Power of the Tarot?</h1>
+            <h1>{props.userName}, Ready to Discover the Power of Tarot?</h1>
             <p>Get personalized readings online from Artificial Intelligence.</p>
             <button className="hero-button" onClick={() => navigate("/LinearDay")}>Try a reading now!</button>
           </div>

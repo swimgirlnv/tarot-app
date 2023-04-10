@@ -51,10 +51,11 @@ function App() {
           <AlertIcon />
           Please be aware: Website is under construction! Some features not yet available.
         </Alert>
-        
+        <div id="top-of-page">
           <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
-
-         <Routes>
+        </div>
+        <div id="meat-of-page">
+        <Routes>
            <Route path="/" element={<Home onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />} />
            <Route path="journal" element={<Journal />} />
            <Route path="about" element={<About />} />
@@ -66,8 +67,11 @@ function App() {
            <Route path="daily" element={<Daily />} />
                       <Route path="linearDay" element={<LinearDay />} />
          </Routes>
-         <Footer></Footer>
-         </div>
+        </div>
+        <div id="bottom-of-page">
+          <Footer />
+        </div>
+        </div>
      </Router>
      
     );
