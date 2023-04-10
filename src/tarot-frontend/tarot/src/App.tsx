@@ -43,12 +43,14 @@ function App() {
   axios.defaults.headers.common['Content-Type'] = "application/json";
 
     return (
-    <>
+    
      <Router>
+      <div className='page-content'>
         <Alert status='warning'>
           <AlertIcon />
           Please be aware: Website is under construction! Some features not yet available.
         </Alert>
+        
           <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
 
          <Routes>
@@ -63,8 +65,9 @@ function App() {
                       <Route path="linearDay" element={<LinearDay />} />
          </Routes>
          <Footer></Footer>
+         </div>
      </Router>
-     </>
+     
     );
 }
 

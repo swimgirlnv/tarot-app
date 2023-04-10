@@ -1,7 +1,6 @@
 .App {
   margin-top: 0px;
   text-align: center;
-  min-height: 100vh;
   background-color: white;
 }
 
@@ -161,4 +160,11 @@ background-color: PaleGoldenRod;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 20px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: scroll;
 }

@@ -26,7 +26,7 @@ function Home() {
 
   return (
       <div className="App text-center">
-
+        
         <h1 className="a-h1">Hello, {decodedToken?.given_name}! Welcome to AI Tarot Readings!</h1>
         
         <div className="grid-container">
@@ -85,8 +85,8 @@ function Home() {
           </div>
             
         </div>
+      </div>
 
-        </div>
   )
 }
 

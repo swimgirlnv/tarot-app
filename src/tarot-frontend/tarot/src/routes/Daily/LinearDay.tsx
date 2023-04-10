@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import '../spread.css';
 
-import { Card, CardHeader, CardBody, Button , Image } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Button , Image, CardFooter } from '@chakra-ui/react'
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
 
 function LinearDay(props: any){
@@ -59,51 +59,52 @@ const [cardIDOne, setCardIDOne] = useState("22")
 
 
 const handleCard1 = () => {
-
-axios.get("/getCardName/" + cardIDOne)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getCardName: " + response.data);
-          setCardNameOne(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
-
-
-axios.get("/getCardImage/" + cardIDOne)
+      axios.get("/getCardName/" + cardIDOne)
               // @ts-ignore
               .then(response => {
-              console.log("this is response.data for getCardImage: " + response.data);
-              setCardImageOne(response.data);
+                console.log("this is response.data for getCardName: " + response.data);
+                setCardNameOne(response.data);
               })
-              //@ts-ignore
+              // @ts-ignore
               .catch(error => {
-              console.log(error);
+                console.log(error);
               });
 
-axios.get("/getCardUpright/" + cardIDOne)
-              // @ts-ignore
-              .then(response => {
-              console.log("this is response.data for getCardUpright: " + response.data);
-              setCardUprightOne(response.data);
-              })
-              //@ts-ignore
-              .catch(error => {
-              console.log(error);
-              });
+      axios.get("/getCardImage/" + cardIDOne)
+                    // @ts-ignore
+                    .then(response => {
+                    console.log("this is response.data for getCardImage: " + response.data);
+                    setCardImageOne(response.data);
+                    })
+                    //@ts-ignore
+                    .catch(error => {
+                    console.log(error);
+                    });
 
-axios.get("/getCardReverse/" + cardIDOne)
-              // @ts-ignore
-              .then(response => {
-              console.log("this is response.data for getCardReverse: " + response.data);
-              setCardReverseOne(response.data);
-              })
-              //@ts-ignore
-              .catch(error => {
-              console.log(error);
-              });
+      axios.get("/getCardUpright/" + cardIDOne)
+                    // @ts-ignore
+                    .then(response => {
+                    console.log("this is response.data for getCardUpright: " + response.data);
+                    setCardUprightOne(response.data);
+                    })
+                    //@ts-ignore
+                    .catch(error => {
+                    console.log(error);
+                    });
+
+      axios.get("/getCardReverse/" + cardIDOne)
+                    // @ts-ignore
+                    .then(response => {
+                    console.log("this is response.data for getCardReverse: " + response.data);
+                    setCardReverseOne(response.data);
+                    })
+                    //@ts-ignore
+                    .catch(error => {
+                    console.log(error);
+                    });
+
+      setIsFlipped1(!isFlipped1);
+      
 }
 
 const handleCard2 = () => {
@@ -151,6 +152,8 @@ axios.get("/getCardReverse/" + cardIDTwo)
               .catch(error => {
               console.log(error);
               });
+
+              setIsFlipped2(!isFlipped2);
 }
 
 const handleCard3 = () => {
@@ -199,25 +202,30 @@ axios.get("/getCardReverse/" + cardIDThree)
               console.log(error);
               });
 
+              setIsFlipped3(!isFlipped3);
+
 }
 
 const handleReading = () => {
-
-axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getReading: " + response.data);
-          setReading(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
+  setDisabled(true);
+  axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
+          // @ts-ignore
+          .then(response => {
+            console.log("this is response.data for getReading: " + response.data);
+            setReading(response.data);
+          })
+          // @ts-ignore
+          .catch(error => {
+            console.log(error);
+          }); 
 }
 
-const [disable1, setDisable1] = React.useState(false);
-const [disable2, setDisable2] = React.useState(false);
-const [disable3, setDisable3] = React.useState(false);
+const [disabled, setDisabled] = useState(false);
+
+
+const [isFlipped1, setIsFlipped1] = useState(false);
+const [isFlipped2, setIsFlipped2] = useState(false);
+const [isFlipped3, setIsFlipped3] = useState(false);
 
 return (
     <div className="LinearDayPage">
@@ -227,28 +235,61 @@ return (
       </div>
       
     <div className="content-box">
-    <div>
+      <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
           <CardHeader>Morning</CardHeader>
-          <Image className="clickable" alt="morning card" src={cardImageOne} onClick={handleCard1} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightOne} </p>
-        <p>Reverse: {cardReverseOne} </p></CardBody>
+          <div
+          className={`card ${isFlipped1 ? "flip" : ""}`}
+          onClick={handleCard1}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageOne}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightOne} </p>
+            <p>Reverse: {cardReverseOne} </p>
+          </CardBody>
         </Card>
       </div>
       <div>
-        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300" >
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
           <CardHeader>Afternoon</CardHeader>
-          <Image className="clickable" alt="afternoon card" src={cardImageTwo} onClick={handleCard2} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightTwo} </p>
-        <p>Reverse: {cardReverseTwo} </p></CardBody>
+          <div
+          className={`card ${isFlipped2 ? "flip" : ""}`}
+          onClick={handleCard2}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageTwo}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightTwo} </p>
+            <p>Reverse: {cardReverseTwo} </p>
+          </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
           <CardHeader>Evening</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageThree} onClick={handleCard3} height="250"  maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightThree} </p>
-        <p>Reverse: {cardReverseThree} </p></CardBody>
+          <div
+          className={`card ${isFlipped3 ? "flip" : ""}`}
+          onClick={handleCard3}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageThree}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightThree} </p>
+            <p>Reverse: {cardReverseThree} </p>
+          </CardBody>
         </Card>
       </div>
 
@@ -256,7 +297,11 @@ return (
     </div>
     <div className="reading">
       <Card maxW='lg' minW='lg' boxShadow='none'>
-        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
+        <CardHeader as={Button} 
+        className="CotD" 
+        onClick={handleReading} 
+        disabled={disabled}
+        style={{cursor: disabled ? 'not-allowed' : 'pointer'}}> Get your reading! </CardHeader>
         <CardBody>{reading}</CardBody>
       </Card>
     </div>
