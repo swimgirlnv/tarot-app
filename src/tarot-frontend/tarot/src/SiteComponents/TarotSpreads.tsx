@@ -33,7 +33,7 @@ function TarotSpreads() {
 
   return (
         <Menu>
-        <MenuButton as={Button} variant="primary">Tarot Spreads</MenuButton>
+        <MenuButton as={Button} variant="primary" fontSize="xl">Tarot Spreads</MenuButton>
           <MenuList>
             <MenuItem className="Career" onClick={handleCareer}>Career</MenuItem>
             <MenuItem className="Daily" onClick={handleDaily}>Daily</MenuItem>

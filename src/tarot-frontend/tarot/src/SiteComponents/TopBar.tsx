@@ -34,21 +34,28 @@ function TopBar(props: Props) {
   const handleJournal = () => {
         navigate("/Journal");
     }
+  
+  const handleAbout = () => {
+      navigate("/About");
+  }
 
   return (
         <div className="top-bar">
           <div className='sizing-div'>
-            <a className="site-title" href="/"><img src="https://i.imgur.com/9fTXRNl.png" width="80" height="80"/></a>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={() => navigate("/")}>Home</Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary"><TarotSpreads /></Button>
+            <Button variant="brandPrimary" color="#275c7b"><TarotSpreads /></Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary" onClick={handleJournal}>Journal</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={handleJournal}>Journal</Button>
           </div>
           <div className='sizing-div'>
-            <p>You are communing with the spirits as</p><b>{props.userName}</b>.
-            <Button variant="brandPrimary" onClick={props.onLogout}>Log Out</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={handleAbout}>About</Button>
+          </div>
+          <div className='sizing-div'>
+            {/* <p color="#275c7b">You are communing with the spirits as</p><b>{props.userName}</b>. */}
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={props.onLogout}>Log Out</Button>
           </div>
         </div>
   );

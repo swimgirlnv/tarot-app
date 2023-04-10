@@ -15,6 +15,7 @@ import Love from './routes/Love/Love';
 import Career from './routes/Career/Career';
 import Daily from './routes/Daily/Daily';
 import Journal from './routes/Journal/Journal';
+import About from './routes/About/About';
 
 import ShootingForward from './routes/Career/ShootingForward';
 import LinearDay from './routes/Daily/LinearDay';
@@ -54,8 +55,9 @@ function App() {
           <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
 
          <Routes>
-           <Route path="/" element={<Home />} />
+           <Route path="/" element={<Home onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />} />
            <Route path="journal" element={<Journal />} />
+           <Route path="about" element={<About />} />
            <Route path="love" element={<Love />} />
                       <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
