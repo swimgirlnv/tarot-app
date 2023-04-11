@@ -18,7 +18,7 @@ return (
       <img className="logo-img2" alt="logo" src="https://i.imgur.com/9fTXRNl.png"/>
       <section className="section">
         <h2>Who We Are</h2>
-        <p>MajorArcana was founded in 2022 by Becca Waterson with a mission to provide quality tarot readings to people around the world.</p>
+        <p>MajorArcana was founded in 2022 by Brown University CS/Literary Arts Concentrator Becca Waterson with a mission to provide quality tarot readings to people around the world.</p>
         <p>Through the power of AI, we hope to make readings quick, easy, accessible, and fun for users of all levels.</p>
       </section>
       <section className="section">

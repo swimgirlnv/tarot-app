@@ -10,10 +10,10 @@ export default function FlipCardPrompt() {
   } = useDisclosure({ defaultIsOpen: true })
 
   return isVisible ? (
-    <Alert status='success' justifyContent='space-evenly'>
+    <Alert justifyContent='space-between' width="100%" backgroundColor='#f5f5f5'>
       <AlertIcon />
       <Box>
-        <AlertDescription>
+        <AlertDescription color="#275c7b">
           Click on the Major Arcana cards to reveal their meanings, then click on "Get your reading!"
         </AlertDescription>
       </Box>
@@ -22,6 +22,7 @@ export default function FlipCardPrompt() {
         right={-10}
         top={-1}
         onClick={onClose}
+        color="#275c7b"
       />
     </Alert>
   ) : (

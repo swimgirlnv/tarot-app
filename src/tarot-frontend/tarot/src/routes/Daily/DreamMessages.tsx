@@ -5,6 +5,7 @@ import axios from "axios";
 import '../spread.css';
 import { Card, CardHeader, CardBody, Button , Image } from '@chakra-ui/react'
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 
 function DreamMessages(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -116,6 +117,7 @@ axios.get("/getCardReverse/" + cardIDOne)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped1(!isFlipped1);
 }
 
 const handleCard2 = () => {
@@ -163,6 +165,7 @@ axios.get("/getCardReverse/" + cardIDTwo)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped2(!isFlipped2);
 }
 
 const handleCard3 = () => {
@@ -210,6 +213,7 @@ axios.get("/getCardReverse/" + cardIDThree)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped3(!isFlipped3);
 
 }
 
@@ -258,6 +262,7 @@ axios.get("/getCardReverse/" + cardIDFour)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped4(!isFlipped4);
 
 }
 
@@ -306,11 +311,13 @@ axios.get("/getCardReverse/" + cardIDFive)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped5(!isFlipped5);
 
 }
 
 const handleReading = () => {
-
+  setReading("Waiting on the spirits...")
+  setDisabled(true)
 axios.get("/getReadingDreamMessages/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
@@ -323,68 +330,136 @@ axios.get("/getReadingDreamMessages/" + cardNameOne + "/" + cardNameTwo + "/"
           console.log(error);
         });
 }
+const [disabled, setDisabled] = useState(false);
 
-const [disable1, setDisable1] = React.useState(false);
-const [disable2, setDisable2] = React.useState(false);
-const [disable3, setDisable3] = React.useState(false);
-const [disable4, setDisable4] = React.useState(false);
-const [disable5, setDisable5] = React.useState(false);
-const [disableReading, setDisableReading] = React.useState(false);
+const [isFlipped1, setIsFlipped1] = useState(false);
+const [isFlipped2, setIsFlipped2] = useState(false);
+const [isFlipped3, setIsFlipped3] = useState(false);
+const [isFlipped4, setIsFlipped4] = useState(false);
+const [isFlipped5, setIsFlipped5] = useState(false);
+
+let navigate = useNavigate();
 
 return (
     <div className="spread-page">
-
-        <h1 className="dp-h1"> Dream Messages </h1>
-        <div>
+      <div className='hero-container'>
+        <div className='daily-hero'>
+        <h1>
+            <Button onClick={() => navigate('/Daily')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
+            Dream Messages
+          </h1>
+          <p>Whether you're experiencing recurring dreams, vivid nightmares, or simply want to unlock the secrets 
+            of your subconscious mind, our dream messages tarot reading can help.
+          </p>
           <FlipCardPrompt />
         </div>
+      </div>
 
         <div className="content-box">
-          <div>
-            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-              <CardHeader>Past Event</CardHeader>
-              <Image className="clickable" alt="morning card" src={cardImageOne} onClick={handleCard1} height="250" maxWidth='175' />
-              <CardBody><p>Upright: {cardUprightOne} </p>
-                <p>Reverse: {cardReverseOne} </p></CardBody>
-            </Card>
+        <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Past Event</CardHeader>
+          <div
+          className={`card ${isFlipped1 ? "flip" : ""}`}
+          onClick={handleCard1}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageOne}></Image>
+            </div>
           </div>
-          <div>
-            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-              <CardHeader>Dream Theme</CardHeader>
-              <Image className="clickable" alt="morning card" src={cardImageTwo} onClick={handleCard2} height="250" maxWidth='175' />
-              <CardBody><p>Upright: {cardUprightTwo} </p>
-                <p>Reverse: {cardReverseTwo} </p></CardBody>
-            </Card>
+          <CardBody>
+            <p>Upright: {cardUprightOne} </p>
+            <p>Reverse: {cardReverseOne} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Dream Theme</CardHeader>
+          <div
+          className={`card ${isFlipped2 ? "flip" : ""}`}
+          onClick={handleCard2}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageTwo}></Image>
+            </div>
           </div>
-          <div>
-            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-              <CardHeader>Waking life block</CardHeader>
-              <Image className="clickable" alt="morning card" src={cardImageThree} onClick={handleCard3} height="250" maxWidth='175' />
-              <CardBody><p>Upright: {cardUprightThree} </p>
-                <p>Reverse: {cardReverseThree} </p></CardBody>
-            </Card>
+          <CardBody>
+            <p>Upright: {cardUprightTwo} </p>
+            <p>Reverse: {cardReverseTwo} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Waking Life Block</CardHeader>
+          <div
+          className={`card ${isFlipped3 ? "flip" : ""}`}
+          onClick={handleCard3}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageThree}></Image>
+            </div>
           </div>
-          <div>
-            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-              <CardHeader>Message</CardHeader>
-              <Image className="clickable" alt="morning card" src={cardImageFour} onClick={handleCard4} height="250" maxWidth='175' />
-              <CardBody><p>Upright: {cardUprightFour} </p>
-                <p>Reverse: {cardReverseFour} </p></CardBody>
-            </Card>
+          <CardBody>
+            <p>Upright: {cardUprightThree} </p>
+            <p>Reverse: {cardReverseThree} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Message</CardHeader>
+          <div
+          className={`card ${isFlipped4 ? "flip" : ""}`}
+          onClick={handleCard4}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageFour}></Image>
+            </div>
           </div>
-          <div>
-            <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-              <CardHeader>Lesson</CardHeader>
-              <Image className="clickable" alt="morning card" src={cardImageFive} onClick={handleCard5} height="250" maxWidth='175' />
-              <CardBody><p>Upright: {cardUprightFive} </p>
-                <p>Reverse: {cardReverseFive} </p></CardBody>
-            </Card>
+          <CardBody>
+            <p>Upright: {cardUprightFour} </p>
+            <p>Reverse: {cardReverseFour} </p>
+          </CardBody>
+        </Card>
+      </div>
+      <div>
+        <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
+          <CardHeader>Lesson</CardHeader>
+          <div
+          className={`card ${isFlipped5 ? "flip" : ""}`}
+          onClick={handleCard5}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageFive}></Image>
+            </div>
           </div>
+          <CardBody>
+            <p>Upright: {cardUprightFive} </p>
+            <p>Reverse: {cardReverseFive} </p>
+          </CardBody>
+        </Card>
+      </div>
     </div>
     <div className="reading">
       <Card maxW='lg' minW='lg' boxShadow='none'>
-        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
-        <CardBody>{reading}</CardBody>
+        <CardHeader as={Button} 
+        className="CotD" 
+        onClick={handleReading} 
+        disabled={disabled}
+        style={{cursor: disabled ? 'not-allowed' : 'pointer'}}> Get your reading! </CardHeader>
+        <CardBody placeholder='Waiting on the spirits...'>{reading}</CardBody>
       </Card>
     </div>
 </div>

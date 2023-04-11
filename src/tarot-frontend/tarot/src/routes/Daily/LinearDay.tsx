@@ -4,7 +4,10 @@ import axios from "axios";
 import '../spread.css';
 
 import { Card, CardHeader, CardBody, Button , Image, CardFooter } from '@chakra-ui/react'
+import { ArrowBackIcon } from '@chakra-ui/icons'
+
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function LinearDay(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -207,6 +210,7 @@ axios.get("/getCardReverse/" + cardIDThree)
 }
 
 const handleReading = () => {
+  setReading("Waiting on the spirits...")
   setDisabled(true);
   axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
           // @ts-ignore
@@ -227,11 +231,21 @@ const [isFlipped1, setIsFlipped1] = useState(false);
 const [isFlipped2, setIsFlipped2] = useState(false);
 const [isFlipped3, setIsFlipped3] = useState(false);
 
+let navigate = useNavigate();
+
 return (
     <div className="LinearDayPage">
-      <h1 className="dp-h1"> Linear Day </h1>
-      <div>
-        <FlipCardPrompt />
+      <div className='hero-container'>
+        <div className='daily-hero'>
+          <h1>
+            <Button onClick={() => navigate('/Daily')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
+            Linear Day
+          </h1>
+          <p>Whether you're looking to stay on top of your to-do list or need guidance on how to navigate 
+            challenging situations, our linear day tarot reading can help you stay grounded and focused throughout your day.
+          </p>
+          <FlipCardPrompt />
+        </div>
       </div>
       
     <div className="content-box">

@@ -31,6 +31,7 @@ import * as Constants from './Constants';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 import './Home.css';
 import Footer from './SiteComponents/Footer';
+import Tips from './routes/Tips/Tips';
 
 function App() {
   const {token, setToken} = useToken();
@@ -54,10 +55,11 @@ function App() {
         <div id="top-of-page">
           <TopBar onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />
         </div>
-        <div id="meat-of-page">
+        <div className="meat-of-page">
         <Routes>
            <Route path="/" element={<Home onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />} />
            <Route path="journal" element={<Journal />} />
+           <Route path="tips" element={<Tips />} />
            <Route path="about" element={<About />} />
            <Route path="love" element={<Love />} />
                       <Route path="htf" element={<HTF />} />

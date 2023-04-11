@@ -15,7 +15,18 @@ const handleShootingForward = () => {
 
 return (
     <div className="CareerPage">
-      <h1 className="cp-h1">Career Tarot Spreads</h1>
+      {/* <h1 className="cp-h1">Career Tarot Spreads</h1> */}
+      <div className='hero-container'>
+        <div className="career-hero">
+          <h1>Career Tarot Spreads</h1>
+          <p>Looking to advance your career but not sure where to start? Our career tarot reading is here to help! 
+            This reading is designed to provide insight into your professional life and help guide you towards success. 
+            These cards can uncover hidden opportunities, identify potential obstacles, 
+            and offer advice on how to best navigate your career path. Whether you're starting out or looking to make a big 
+            change, our career tarot reading can provide the clarity and direction you need to achieve your goals.
+          </p>
+        </div>
+      </div>
       <div className="page-container">
         <div className="cards">
           <Card maxW="sm">

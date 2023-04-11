@@ -27,8 +27,17 @@ const handleDM = () => {
 
 return (
     <div className="DailyPage text-center">
-
-      <h1 className="dp-h1">Daily Tarot Spreads</h1>
+      {/* <h1 className="dp-h1">Daily Tarot Spreads</h1> */}
+      <div className='hero-container'>
+        <div className="daily-hero">
+          <h1>Daily Tarot Spreads</h1>
+          <p>Looking for a daily dose of inspiration and guidance? Our daily tarot readings are here to help! 
+            Perfect for anyone looking to 
+            gain insights into their daily life, overcome challenges, or make informed decisions, you 
+            can access your daily tarot reading anytime, anywhere, and start each day with a fresh perspective. 
+            Don't let life's uncertainties hold you back - let our daily tarot readings help guide you towards a brighter future.</p>
+        </div>
+      </div>
 
       <div className="page-container">
         <div className="cards">

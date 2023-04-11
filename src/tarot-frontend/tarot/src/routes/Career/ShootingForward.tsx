@@ -5,6 +5,7 @@ import axios from "axios";
 import '../spread.css';
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
 import { Button, Card, CardBody, CardHeader , Image } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 
 function ShootingForward(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,14 @@ function ShootingForward(props: any){
   const [cardImageFive, setCardImageFive] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const [reading, setReading] = useState("")
+  let navigate = useNavigate();
+
+  const [isFlipped1, setIsFlipped1] = useState(false);
+  const [isFlipped2, setIsFlipped2] = useState(false);
+  const [isFlipped3, setIsFlipped3] = useState(false);
+  const [isFlipped4, setIsFlipped4] = useState(false);
+  const [isFlipped5, setIsFlipped5] = useState(false);
+
 
   useEffect(() => { setLoaded(true) })
 
@@ -117,12 +126,8 @@ axios.get("/getCardReverse/" + cardIDOne)
               console.log(error);
               });
 
-              return (
-                <div>
-                  <p>Upright: {cardUprightOne} </p>
-                  <p>Reverse: {cardReverseOne} </p>
-                </div>
-              )
+              setIsFlipped1(!isFlipped1);
+              
 }
 
 const handleCard2 = () => {
@@ -170,6 +175,7 @@ axios.get("/getCardReverse/" + cardIDTwo)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped2(!isFlipped2);
 }
 
 const handleCard3 = () => {
@@ -217,7 +223,7 @@ axios.get("/getCardReverse/" + cardIDThree)
               .catch(error => {
               console.log(error);
               });
-
+              setIsFlipped3(!isFlipped3);
 }
 
 const handleCard4 = () => {
@@ -265,7 +271,7 @@ axios.get("/getCardReverse/" + cardIDFour)
               .catch(error => {
               console.log(error);
               });
-
+              setIsFlipped4(!isFlipped4);
 }
 
 const handleCard5 = () => {
@@ -313,12 +319,13 @@ axios.get("/getCardReverse/" + cardIDFive)
               .catch(error => {
               console.log(error);
               });
-
+              setIsFlipped5(!isFlipped5);
 }
 
 const handleReading = () => {
-
-axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
+  setReading("Waiting on the spirits...")
+  setDisabled(true)
+axios.get("/getReadingDreamMessages/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
         .then(response => {
@@ -330,79 +337,128 @@ axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
           console.log(error);
         });
 }
-
-const [disable1, setDisable1] = React.useState(false);
-const [disable2, setDisable2] = React.useState(false);
-const [disable3, setDisable3] = React.useState(false);
-const [disable4, setDisable4] = React.useState(false);
-const [disable5, setDisable5] = React.useState(false);
-const [disableReading, setDisableReading] = React.useState(false);
-
+const [disabled, setDisabled] = useState(false);
 
 return (
     <div className="ShootingForwardPage">
-    <h1 className="cp-h1"> Shooting Forward </h1>
-    <div>
-        <FlipCardPrompt />
+      <div className='hero-container'>
+        <div className='career-hero'>
+        <h1>
+            <Button onClick={() => navigate('/Career')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
+            Shooting Forward
+          </h1>
+          <p>With our career shooting forward tarot reading, you'll be able to gain clarity on the steps you need to take to reach 
+            your professional goals and propel your career forward.
+          </p>
+          <FlipCardPrompt />
+        </div>
       </div>
       
     <div className="content-box">
-      <div>
+    <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
           <CardHeader>Dream Job</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageOne} onClick={handleCard1} height="250"  maxWidth='175' />
+          <div
+          className={`card ${isFlipped1 ? "flip" : ""}`}
+          onClick={handleCard1}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageOne}></Image>
+            </div>
+          </div>
           <CardBody>
-          <p>Upright: {cardUprightOne} </p>
-          <p>Reverse: {cardReverseOne} </p>
+            <p>Upright: {cardUprightOne} </p>
+            <p>Reverse: {cardReverseOne} </p>
           </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>How to get there</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageTwo} onClick={handleCard2} height="250"  maxWidth='175' />
+          <CardHeader>How to Get There</CardHeader>
+          <div
+          className={`card ${isFlipped2 ? "flip" : ""}`}
+          onClick={handleCard2}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageTwo}></Image>
+            </div>
+          </div>
           <CardBody>
-          <p>Upright: {cardUprightTwo} </p>
-          <p>Reverse: {cardReverseTwo} </p>
+            <p>Upright: {cardUprightTwo} </p>
+            <p>Reverse: {cardReverseTwo} </p>
           </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Qualities you bring</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageThree} onClick={handleCard3} height="250"  maxWidth='175' />
+          <CardHeader>Qualities You Bring</CardHeader>
+          <div
+          className={`card ${isFlipped3 ? "flip" : ""}`}
+          onClick={handleCard3}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageThree}></Image>
+            </div>
+          </div>
           <CardBody>
-          <p>Upright: {cardUprightThree} </p>
-          <p>Reverse: {cardReverseThree} </p>
+            <p>Upright: {cardUprightThree} </p>
+            <p>Reverse: {cardReverseThree} </p>
           </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Where to find help</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageFour} onClick={handleCard4} height="250"  maxWidth='175' />
+          <CardHeader>Where to Find Help</CardHeader>
+          <div
+          className={`card ${isFlipped4 ? "flip" : ""}`}
+          onClick={handleCard4}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageFour}></Image>
+            </div>
+          </div>
           <CardBody>
-          <p>Upright: {cardUprightFour} </p>
-          <p>Reverse: {cardReverseFour} </p>
+            <p>Upright: {cardUprightFour} </p>
+            <p>Reverse: {cardReverseFour} </p>
           </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>What needs attention</CardHeader>
-          <Image className="clickable" alt="evening card" src={cardImageFive} onClick={handleCard5} height="250"  maxWidth='175' />
+          <CardHeader>What Needs Attention</CardHeader>
+          <div
+          className={`card ${isFlipped5 ? "flip" : ""}`}
+          onClick={handleCard5}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageFive}></Image>
+            </div>
+          </div>
           <CardBody>
-          <p>Upright: {cardUprightFive} </p>
-          <p>Reverse: {cardReverseFive} </p>
+            <p>Upright: {cardUprightFive} </p>
+            <p>Reverse: {cardReverseFive} </p>
           </CardBody>
         </Card>
       </div>
     </div>
-
     <div className="reading">
       <Card maxW='lg' minW='lg' boxShadow='none'>
-        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
-        <CardBody>{reading}</CardBody>
+        <CardHeader as={Button} 
+        className="CotD" 
+        onClick={handleReading} 
+        disabled={disabled}
+        style={{cursor: disabled ? 'not-allowed' : 'pointer'}}> Get your reading! </CardHeader>
+        <CardBody placeholder='Waiting on the spirits...'>{reading}</CardBody>
       </Card>
     </div>
 

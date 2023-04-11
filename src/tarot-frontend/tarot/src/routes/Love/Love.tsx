@@ -31,9 +31,18 @@ const handleFNL = () => {
 
 return (
     <div className="LovePage text-center">
-
-      <h1 className="lp-h1">Love and Relationship Tarot Spreads</h1>
-
+      {/* <h1 className="lp-h1">Love and Relationship Tarot Spreads</h1> */}
+      <div className='hero-container'>
+        <div className="love-hero">
+          <h1>Love Tarot Spreads</h1>
+          <p>Are you searching for love or looking to improve your current relationship? Our love tarot readings 
+            can help you navigate matters of the heart and find the answers you need. With these cards, you can uncover insights into your love life
+            and make informed decisions about your romantic future. Whether you're single and looking for 
+            love, or in a committed relationship, our love tarot readings can provide you with the clarity and guidance 
+            you need to achieve your relationship goals. Don't let love's 
+            uncertainties hold you back - let our love tarot readings help guide you towards a brighter romantic future.</p>
+        </div>
+      </div>
       <div className="page-container">
         <div className="cards">
           <Card maxW="sm">

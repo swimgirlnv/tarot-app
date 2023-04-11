@@ -11,7 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@chakra-ui/react'
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 function HTF(props: any){
   const [loaded, setLoaded] = useState(false);
@@ -43,12 +43,19 @@ function HTF(props: any){
   const [cardImageFour, setCardImageFour] = useState("https://i.imgur.com/MyvuLmb.png")
 
   const [reading, setReading] = useState("")
+  let navigate = useNavigate();
+
+  const [isFlipped1, setIsFlipped1] = useState(false);
+  const [isFlipped2, setIsFlipped2] = useState(false);
+  const [isFlipped3, setIsFlipped3] = useState(false);
+  const [isFlipped4, setIsFlipped4] = useState(false);
+
 
   useEffect(() => { setLoaded(true) })
 
   useEffect(() => {
     if (loaded) {
-        axios.get("/getCards/4")
+        axios.get("/getCards/5")
                 // @ts-ignore
                 .then(response => {
                   console.log("this is response.data for getCards: " + response.data);
@@ -117,6 +124,9 @@ axios.get("/getCardReverse/" + cardIDOne)
               .catch(error => {
               console.log(error);
               });
+
+              setIsFlipped1(!isFlipped1);
+              
 }
 
 const handleCard2 = () => {
@@ -164,6 +174,7 @@ axios.get("/getCardReverse/" + cardIDTwo)
               .catch(error => {
               console.log(error);
               });
+              setIsFlipped2(!isFlipped2);
 }
 
 const handleCard3 = () => {
@@ -211,7 +222,7 @@ axios.get("/getCardReverse/" + cardIDThree)
               .catch(error => {
               console.log(error);
               });
-
+              setIsFlipped3(!isFlipped3);
 }
 
 const handleCard4 = () => {
@@ -259,12 +270,12 @@ axios.get("/getCardReverse/" + cardIDFour)
               .catch(error => {
               console.log(error);
               });
-
+              setIsFlipped4(!isFlipped4);
 }
 
-
 const handleReading = () => {
-
+  setReading("Waiting on the spirits...")
+  setDisabled(true)
 axios.get("/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour)
         // @ts-ignore
@@ -277,80 +288,111 @@ axios.get("/getReadingHTF/" + cardNameOne + "/" + cardNameTwo + "/"
           console.log(error);
         });
 }
-
-let navigate = useNavigate();
-
-
-const [disable1, setDisable1] = React.useState(false);
-const [disable2, setDisable2] = React.useState(false);
-const [disable3, setDisable3] = React.useState(false);
-const [disable4, setDisable4] = React.useState(false);
-const [disableReading, setDisableReading] = React.useState(false);
+const [disabled, setDisabled] = useState(false);
 
 return (
-    <div className="spread-page">
-    <div className='lp-h1'>
-    <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
-      <BreadcrumbItem>
-        <BreadcrumbLink onClick={() => navigate("/")}>Home</BreadcrumbLink>
-      </BreadcrumbItem>
-
-      <BreadcrumbItem>
-        <BreadcrumbLink onClick={() => navigate("/Love")}>Love Spreads</BreadcrumbLink>
-      </BreadcrumbItem>
-
-      <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink>How They Feel</BreadcrumbLink>
-      </BreadcrumbItem>
-    </Breadcrumb>
-    </div>
-    
-
-
-    <div>
-        <FlipCardPrompt />
-    </div>
-
+    <div className="HTFPage">
+      <div className='hero-container'>
+        <div className='love-hero'>
+        <h1>
+            <Button onClick={() => navigate('/Love')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
+            How They Feel
+          </h1>
+          <p>These cards can help to provide you with personalized interpretations of how the other person is feeling and offer guidance on how to navigate the situation.
+          </p>
+          <FlipCardPrompt />
+        </div>
+      </div>
+      
     <div className="content-box">
-      <div>
+    <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>How they feel about you</CardHeader>
-          <Image className="clickable" alt="morning card" src={cardImageOne} onClick={handleCard1} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightOne} </p>
-        <p>Reverse: {cardReverseOne} </p></CardBody>
+          <CardHeader>How They Feel About You</CardHeader>
+          <div
+          className={`card ${isFlipped1 ? "flip" : ""}`}
+          onClick={handleCard1}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageOne}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightOne} </p>
+            <p>Reverse: {cardReverseOne} </p>
+          </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>How they feel about the relationship</CardHeader>
-          <Image className="clickable" alt="morning card" src={cardImageTwo} onClick={handleCard2} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightTwo} </p>
-        <p>Reverse: {cardReverseTwo} </p></CardBody>
+          <CardHeader>How They Feel About the Relationship</CardHeader>
+          <div
+          className={`card ${isFlipped2 ? "flip" : ""}`}
+          onClick={handleCard2}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageTwo}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightTwo} </p>
+            <p>Reverse: {cardReverseTwo} </p>
+          </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>What are their challenges?</CardHeader>
-          <Image className="clickable" alt="morning card" src={cardImageThree} onClick={handleCard3} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightThree} </p>
-        <p>Reverse: {cardReverseThree} </p></CardBody>
+          <CardHeader>What Are Their Challenges?</CardHeader>
+          <div
+          className={`card ${isFlipped3 ? "flip" : ""}`}
+          onClick={handleCard3}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageThree}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightThree} </p>
+            <p>Reverse: {cardReverseThree} </p>
+          </CardBody>
         </Card>
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Where is this relationship heading?</CardHeader>
-          <Image className="clickable" alt="morning card" src={cardImageFour} onClick={handleCard4} height="250" maxWidth='175' />
-          <CardBody><p>Upright: {cardUprightFour} </p>
-        <p>Reverse: {cardReverseFour} </p></CardBody>
+          <CardHeader>Where Is This Relationship Heading?</CardHeader>
+          <div
+          className={`card ${isFlipped4 ? "flip" : ""}`}
+          onClick={handleCard4}>
+            <div className="front">
+              <Image className="clickable" alt="morning card front" src="https://i.imgur.com/MyvuLmb.png"></Image>
+            </div>
+            <div className="back">
+              <Image className="clickable" alt="morning card back" src={cardImageFour}></Image>
+            </div>
+          </div>
+          <CardBody>
+            <p>Upright: {cardUprightFour} </p>
+            <p>Reverse: {cardReverseFour} </p>
+          </CardBody>
         </Card>
       </div>
     </div>
     <div className="reading">
       <Card maxW='lg' minW='lg' boxShadow='none'>
-        <CardHeader as={Button} className="CotD" onClick={handleReading}> Get your reading! </CardHeader>
-        <CardBody>{reading}</CardBody>
+        <CardHeader as={Button} 
+        className="CotD" 
+        onClick={handleReading} 
+        disabled={disabled}
+        style={{cursor: disabled ? 'not-allowed' : 'pointer'}}> Get your reading! </CardHeader>
+        <CardBody placeholder='Waiting on the spirits...'>{reading}</CardBody>
       </Card>
     </div>
+
 </div>
 )
 }

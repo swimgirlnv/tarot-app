@@ -45,6 +45,9 @@ function TopBar(props: Props) {
             <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={() => navigate("/")}>Home</Button>
           </div>
           <div className='sizing-div'>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={() => navigate("/Tips")}>Tarot Tips</Button>
+          </div>
+          <div className='sizing-div'>
             <Button variant="brandPrimary" color="#275c7b"><TarotSpreads /></Button>
           </div>
           <div className='sizing-div'>
