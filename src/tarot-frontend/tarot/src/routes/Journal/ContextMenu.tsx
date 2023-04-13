@@ -4,7 +4,7 @@ import './Journal.css';
 import axios from "axios";
 
 
-function Journal(props: any){
+function ContextMenu(props: any){
 
 const config = {
     headers: {
@@ -26,4 +26,4 @@ return (
     </div>
 )
 }
-export default Journal;
+export default ContextMenu;

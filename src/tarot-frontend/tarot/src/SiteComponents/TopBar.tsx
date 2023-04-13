@@ -1,7 +1,7 @@
 import './TopBar.css';
 import { useNavigate } from "react-router-dom";
 import TarotSpreads from './TarotSpreads';
-import {Button} from '@chakra-ui/react';
+import {background, Button} from '@chakra-ui/react';
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
 const brandPrimary = defineStyle({
@@ -42,23 +42,30 @@ function TopBar(props: Props) {
   return (
         <div className="top-bar">
           <div className='sizing-div'>
-            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={() => navigate("/")}>Home</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" 
+            onClick={() => navigate("/")}
+            _hover={{color: 'white', background:'#275c7b'}}
+            >Home</Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={() => navigate("/Tips")}>Tarot Tips</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" 
+            onClick={() => navigate("/Tips")} _hover={{color: 'white', background:'#275c7b'}}>Tarot Tips</Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary" color="#275c7b"><TarotSpreads /></Button>
+            <Button variant="brandPrimary" color="#275c7b" ><TarotSpreads /></Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={handleJournal}>Journal</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" 
+            onClick={handleJournal} _hover={{color: 'white', background:'#275c7b'}}>Journal</Button>
           </div>
           <div className='sizing-div'>
-            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={handleAbout}>About</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" 
+            onClick={handleAbout} _hover={{color: 'white', background:'#275c7b'}}>About</Button>
           </div>
           <div className='sizing-div'>
             {/* <p color="#275c7b">You are communing with the spirits as</p><b>{props.userName}</b>. */}
-            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" onClick={props.onLogout}>Log Out</Button>
+            <Button variant="brandPrimary" color="#275c7b" fontSize="xl" 
+            onClick={props.onLogout} _hover={{color: 'white', background:'#275c7b'}}>Log Out</Button>
           </div>
         </div>
   );
