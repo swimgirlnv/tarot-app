@@ -84,6 +84,39 @@ public class FortuneTeller {
   }
 
   /**
+   * Makes API call to GPT-3 with the prompt "Do a self reflections reading..." along with the card meanings.
+   * @return Gson string from Open AI that includes request id, object, created, model, choices,
+   * text, index, logprobs, and finish_reason.
+   */
+  public String SelfReflectionInterpreter(String one, String two, String three, String four, String five) {
+    try {
+      String reqUri = "https://api.openai.com/v1/completions";
+
+      String apiKey = ClientAuthenticator.getApiKey();
+
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create(reqUri))
+          .header("Content-Type", "application/json")
+          .header("Authorization", "Bearer " + apiKey)
+          .POST(HttpRequest.BodyPublishers.ofString(
+              "{\"model\": \"text-davinci-002\", \"prompt\": \"Do a self reflection tarot reading. " +
+                  "The card representing how self-talk affecting their ability to be true to themself is " + one
+                  + ". The card representing what they are hiding from themself out of shame or fear is " + two
+                  + ". The card representing what a healing aspect/influence that they can access right now to help them overcome shame/fear is " + three
+                  + ". The card representing what they need to let go of is " + four
+                  + ". The card representing what they need to embrace and nurture right now is " + five
+                  + ". The reading is:\", \"temperature\": 0.3, \"max_tokens\": 1024}"))
+          .build();
+      String httpResponse = client.makeRequest(request);
+      Gson gson = new Gson();
+      TextCompletion textCompletion = gson.fromJson(httpResponse, TextCompletion.class);
+      return textCompletion.choices[0].text;
+    } catch (Exception e) {
+      return e.getMessage();
+    }
+  }
+
+  /**
    * Makes API call to GPT-3 with the prompt "Do a daily reading..." along with the morning,
    * afternoon, and evening cards displayed on the page.
    * @param morning The name of the card in the "morning" placement.

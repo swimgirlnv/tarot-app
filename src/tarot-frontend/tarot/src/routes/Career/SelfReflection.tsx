@@ -7,7 +7,7 @@ import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
 import { Button, Card, CardBody, CardHeader , Image } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 
-function ShootingForward(props: any){
+function SelfReflection(props: any){
   const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
@@ -325,7 +325,7 @@ axios.get("/getCardReverse/" + cardIDFive)
 const handleReading = () => {
   setReading("Waiting on the spirits...")
   setDisabled(true)
-axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
+axios.get("/getReadingSelfReflection/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
         .then(response => {
@@ -345,11 +345,11 @@ return (
         <div className='career-hero'>
         <h1>
             <Button onClick={() => navigate('/Career')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
-            Shooting Forward
+            Self Reflection
           </h1>
-          <p>With our career shooting forward tarot reading, you'll be able to gain clarity on the steps you need to take to reach 
-            your professional goals and propel your career forward.
+          <p>This spread can help you gain insight about how self-talk may be holding you back.
           </p>
+          {/* https://davyandtracy.com/spirituality/self-reflection-tarot-spread/ */}
           <FlipCardPrompt />
         </div>
       </div>
@@ -357,7 +357,7 @@ return (
     <div className="content-box">
     <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Dream Job</CardHeader>
+          <CardHeader>How is my self-talk affecting my ability to be true to myself?</CardHeader>
           <div
           className={`card ${isFlipped1 ? "flip" : ""}`}
           onClick={handleCard1}>
@@ -376,7 +376,7 @@ return (
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>How to Get There</CardHeader>
+          <CardHeader>What am I hiding from myself out of shame or fear?</CardHeader>
           <div
           className={`card ${isFlipped2 ? "flip" : ""}`}
           onClick={handleCard2}>
@@ -395,7 +395,7 @@ return (
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Qualities You Bring</CardHeader>
+          <CardHeader>What is a healing aspect/influence that I can access right now to help me overcome this?</CardHeader>
           <div
           className={`card ${isFlipped3 ? "flip" : ""}`}
           onClick={handleCard3}>
@@ -414,7 +414,7 @@ return (
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>Where to Find Help</CardHeader>
+          <CardHeader>What do I need to let go of?</CardHeader>
           <div
           className={`card ${isFlipped4 ? "flip" : ""}`}
           onClick={handleCard4}>
@@ -433,7 +433,7 @@ return (
       </div>
       <div>
         <Card maxW="sm" maxH="lg" justifyContent='center' alignItems='center' maxWidth='301' minWidth="300">
-          <CardHeader>What Needs Attention</CardHeader>
+          <CardHeader>What do I need to embrace and nurture right now?</CardHeader>
           <div
           className={`card ${isFlipped5 ? "flip" : ""}`}
           onClick={handleCard5}>
@@ -466,4 +466,4 @@ return (
 )
 }
 
-export default ShootingForward;
+export default SelfReflection;

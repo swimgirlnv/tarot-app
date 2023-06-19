@@ -42,7 +42,7 @@ return (
           <Card maxW="sm">
           <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="ShootingForward" 
-            onClick={handleShootingForward} bgColor="#30968c" borderRadius='0'>
+            onClick={() => navigate("/SelfReflection")} bgColor="#30968c" borderRadius='0'>
               <Text>Self Reflection</Text></CardHeader>
             <CardBody>If you are interested in finding your true self and your strengths, this spread will help you
               with personal growth and nurturing.</CardBody>

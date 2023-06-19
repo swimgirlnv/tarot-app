@@ -32,6 +32,7 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 import './Home.css';
 import Footer from './SiteComponents/Footer';
 import Tips from './routes/Tips/Tips';
+import SelfReflection from './routes/Career/SelfReflection';
 
 function App() {
   const {token, setToken} = useToken();
@@ -65,9 +66,10 @@ function App() {
                       <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
                       <Route path="shootingForward" element={<ShootingForward /> } />
-                      <Route path="dreamMessages" element={<DreamMessages /> } />
+                      <Route path="selfReflection" element={<SelfReflection />} />
            <Route path="daily" element={<Daily />} />
                       <Route path="linearDay" element={<LinearDay />} />
+                      <Route path="dreamMessages" element={<DreamMessages /> } />
          </Routes>
         </div>
         <div id="bottom-of-page">

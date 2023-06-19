@@ -115,6 +115,15 @@ public final class Main {
       return gson.toJson(fortuneTeller.DailyInterpreter(morning, afternoon, evening));
     });
 
+    Spark.get("/getReadingSelfReflection/:one/:two/:three/:four/:five", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      String five = req.params(":five");
+      return gson.toJson(fortuneTeller.SelfReflectionInterpreter(one, two, three, four, five));
+    });
+
     Spark.init();
 
   }
