@@ -164,6 +164,7 @@ public final class Main {
       return gson.toJson(db.getCardImage(cardID));
     });
 
+    // DAILY ROUTES
     Spark.get("/getReadingLinearDay/:morning/:afternoon/:evening", (req, res) -> {
       String morning = req.params(":morning");
       String afternoon = req.params(":afternoon");
@@ -171,6 +172,25 @@ public final class Main {
       return gson.toJson(fortuneTeller.DailyInterpreter(morning, afternoon, evening));
     });
 
+     Spark.get("/getReadingDreamMessages/:one/:two/:three/:four/:five", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      String five = req.params(":five");
+      return gson.toJson(fortuneTeller.SpiritualInterpreter(one, two, three, four, five));
+    });
+
+     Spark.get("/getReadingTrustYourGut/:one/:two/:three/:four/:five", (req, res) -> {
+      String one = req.params(":one");
+      String two = req.params(":two");
+      String three = req.params(":three");
+      String four = req.params(":four");
+      String five = req.params(":five");
+      return gson.toJson(fortuneTeller.TrustYourGutInterpreter(one, two, three, four, five));
+    });
+
+    // CAREER ROUTES
     Spark.get("/getReadingShootingForward/:one/:two/:three/:four/:five", (req, res) -> {
       String one = req.params(":one");
       String two = req.params(":two");
@@ -186,18 +206,19 @@ public final class Main {
       String three = req.params(":three");
       String four = req.params(":four");
       String five = req.params(":five");
-      return gson.toJson(fortuneTeller.CareerInterpreter(one, two, three, four, five));
+      return gson.toJson(fortuneTeller.SelfReflectionInterpreter(one, two, three, four, five));
     });
 
-    Spark.get("/getReadingDreamMessages/:one/:two/:three/:four/:five", (req, res) -> {
+    Spark.get("/getReadingCompletionist/:one/:two/:three/:four/:five", (req, res) -> {
       String one = req.params(":one");
       String two = req.params(":two");
       String three = req.params(":three");
       String four = req.params(":four");
       String five = req.params(":five");
-      return gson.toJson(fortuneTeller.SpiritualInterpreter(one, two, three, four, five));
+      return gson.toJson(fortuneTeller.CompletionistInterpreter(one, two, three, four, five));
     });
 
+    // LOVE ROUTES
     Spark.get("/getReadingHTF/:one/:two/:three/:four", (req, res) -> {
       String one = req.params(":one");
       String two = req.params(":two");

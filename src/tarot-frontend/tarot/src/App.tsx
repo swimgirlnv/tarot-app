@@ -11,16 +11,23 @@ import { BrowserRouter as Router,
 
 import Home from './Home';
 import TopBar from './SiteComponents/TopBar';
-import Love from './routes/Love/Love';
-import Career from './routes/Career/Career';
-import Daily from './routes/Daily/Daily';
 import Journal from './routes/Journal/Journal';
 import About from './routes/About/About';
 
+// Love Imports
+import Love from './routes/Love/Love';
+import HTF from './routes/Love/HTF';
+
+// Career Imports
+import Career from './routes/Career/Career';
 import ShootingForward from './routes/Career/ShootingForward';
+import SelfReflection from './routes/Career/SelfReflection';
+
+// Daily Imports
+import Daily from './routes/Daily/Daily';
 import LinearDay from './routes/Daily/LinearDay';
 import DreamMessages from './routes/Daily/DreamMessages';
-import HTF from './routes/Love/HTF';
+import TrustYourGut from './routes/Daily/TrustYourGut';
 
 
 import useToken from './useToken';
@@ -32,7 +39,7 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 import './Home.css';
 import Footer from './SiteComponents/Footer';
 import Tips from './routes/Tips/Tips';
-import SelfReflection from './routes/Career/SelfReflection';
+import Completionist from './routes/Career/Completionist';
 
 function App() {
   const {token, setToken} = useToken();
@@ -59,17 +66,20 @@ function App() {
         <div className="meat-of-page">
         <Routes>
            <Route path="/" element={<Home onLogout={() => setToken("")} userName={decodedToken?.name} pictureURL={decodedToken?.picture} />} />
+           <Route path="*" element={<Navigate to="/" />} />
            <Route path="journal" element={<Journal />} />
            <Route path="tips" element={<Tips />} />
            <Route path="about" element={<About />} />
            <Route path="love" element={<Love />} />
-                      <Route path="htf" element={<HTF />} />
+              <Route path="htf" element={<HTF />} />
            <Route path="career" element={<Career /> } />
-                      <Route path="shootingForward" element={<ShootingForward /> } />
-                      <Route path="selfReflection" element={<SelfReflection />} />
+              <Route path="shootingForward" element={<ShootingForward /> } />
+              <Route path="selfReflection" element={<SelfReflection />} />
+              <Route path="completionist" element={<Completionist />} />
            <Route path="daily" element={<Daily />} />
-                      <Route path="linearDay" element={<LinearDay />} />
-                      <Route path="dreamMessages" element={<DreamMessages /> } />
+              <Route path="linearDay" element={<LinearDay />} />
+              <Route path="dreamMessages" element={<DreamMessages /> } />
+              <Route path="trustyourgut" element={<TrustYourGut />} />
          </Routes>
         </div>
         <div id="bottom-of-page">

@@ -8,7 +8,7 @@ import { Button, Card, CardBody, CardHeader , Image } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import TarotCard from '../../SiteComponents/TarotCard';
 
-function ShootingForward(props: any){
+function Completionist(props: any){
   const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
@@ -27,37 +27,38 @@ function ShootingForward(props: any){
   const [reading, setReading] = useState("")
   let navigate = useNavigate();
 
+
   useEffect(() => { setLoaded(true) })
 
   useEffect(() => {
     if (loaded) {
-        axios.get("/getCards/5")
-                // @ts-ignore
-                .then(response => {
-                  console.log("this is response.data for getCards: " + response.data);
-                  console.log(response.data[0]);
-                  console.log(response.data[1]);
-                  console.log(response.data[2]);
+      axios.get("/getCards/5")
+      // @ts-ignore
+      .then(response => {
+        console.log("this is response.data for getCards: " + response.data);
+        console.log(response.data[0]);
+        console.log(response.data[1]);
+        console.log(response.data[2]);
 
-                  setCardIDOne(response.data[0]);
-                  setCardIDTwo(response.data[1]);
-                  setCardIDThree(response.data[2]);
-                  setCardIDFour(response.data[3]);
-                  setCardIDFive(response.data[4]);
+        setCardIDOne(response.data[0]);
+        setCardIDTwo(response.data[1]);
+        setCardIDThree(response.data[2]);
+        setCardIDFour(response.data[3]);
+        setCardIDFive(response.data[4]);
 
-                  console.log(cardIDOne);
-                })
-                // @ts-ignore
-                .catch(error => {
-                  console.log(error);
-                });
+        console.log(cardIDOne);
+      })
+      // @ts-ignore
+      .catch(error => {
+        console.log(error);
+      });
     }
   }, [loaded]);
 
 const handleReading = () => {
   setReading("Waiting on the spirits...")
   setDisabled(true)
-axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
+axios.get("/getReadingCompletionist/" + cardNameOne + "/" + cardNameTwo + "/"
 + cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
         // @ts-ignore
         .then(response => {
@@ -77,11 +78,12 @@ return (
         <div className='career-hero'>
         <h1>
             <Button onClick={() => navigate('/Career')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
-            Shooting Forward
+            Completionist Tarot
           </h1>
-          <p>With our career shooting forward tarot reading, you'll be able to gain clarity on the steps you need to take to reach 
-            your professional goals and propel your career forward.
+          <p>
+            Not all of it is necessary. But what if you did it anyway?
           </p>
+          {/* https://davyandtracy.com/spirituality/self-reflection-tarot-spread/ */}
           <FlipCardPrompt />
         </div>
       </div>
@@ -89,35 +91,35 @@ return (
     <div className="content-box">
       <div>
         <TarotCard
-          header='Dream Job'
+          header="An achievement/goal that you view as absolutely necessary"
           id={cardIDOne}
           setCardName={setCardNameOne}
         />
       </div>
       <div>
         <TarotCard
-          header='How to Get There'
+          header="An achievement/goal that you see as not necessary but desirable"
           id={cardIDTwo}
           setCardName={setCardNameTwo}
         />
       </div>
       <div>
         <TarotCard
-          header='Qualities You Bring'
+          header="An achievement that seems unnecessary but is easily accomplished"
           id={cardIDThree}
           setCardName={setCardNameThree}
         />
       </div>
       <div>
         <TarotCard
-          header='Where to Find Help'
+          header="An achievement not easily attainable but worth your time"
           id={cardIDFour}
           setCardName={setCardNameFour}
         />
       </div>
       <div>
         <TarotCard
-          header='What Needs Attention'
+          header="What you get out of putting your all into collecting each achievement"
           id={cardIDFive}
           setCardName={setCardNameFive}
         />
@@ -138,4 +140,4 @@ return (
 )
 }
 
-export default ShootingForward;
+export default Completionist;

@@ -117,6 +117,72 @@ public class FortuneTeller {
   }
 
   /**
+   * Makes API call to GPT-3 with the prompt "Do a self reflections reading..." along with the card meanings.
+   * @return Gson string from Open AI that includes request id, object, created, model, choices,
+   * text, index, logprobs, and finish_reason.
+   */
+  public String CompletionistInterpreter(String one, String two, String three, String four, String five) {
+    try {
+      String reqUri = "https://api.openai.com/v1/completions";
+
+      String apiKey = ClientAuthenticator.getApiKey();
+
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create(reqUri))
+          .header("Content-Type", "application/json")
+          .header("Authorization", "Bearer " + apiKey)
+          .POST(HttpRequest.BodyPublishers.ofString(
+              "{\"model\": \"text-davinci-002\", \"prompt\": \"Do a tarot reading for completing achievements/goals. " +
+                  "The card representing an achievement/goal that they view as absolutely necessary is " + one
+                  + ". The card representing an achievement/goal that they see as not necessary but desirable is " + two
+                  + ". The card representing an achievement that they may think is unnecessary but is easily accomplished is " + three
+                  + ". The card representing an achievement not easily attainable but worth their time is " + four
+                  + ". The card representing what they get out of putting their all into collecting each achievement is " + five
+                  + ". The reading is:\", \"temperature\": 0.3, \"max_tokens\": 1024}"))
+          .build();
+      String httpResponse = client.makeRequest(request);
+      Gson gson = new Gson();
+      TextCompletion textCompletion = gson.fromJson(httpResponse, TextCompletion.class);
+      return textCompletion.choices[0].text;
+    } catch (Exception e) {
+      return e.getMessage();
+    }
+  }
+
+  /**
+   * Makes API call to GPT-3 with the prompt "Do a trust your gut reading..." along with the card meanings.
+   * @return Gson string from Open AI that includes request id, object, created, model, choices,
+   * text, index, logprobs, and finish_reason.
+   */
+  public String TrustYourGutInterpreter(String one, String two, String three, String four, String five) {
+    try {
+      String reqUri = "https://api.openai.com/v1/completions";
+
+      String apiKey = ClientAuthenticator.getApiKey();
+
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create(reqUri))
+          .header("Content-Type", "application/json")
+          .header("Authorization", "Bearer " + apiKey)
+          .POST(HttpRequest.BodyPublishers.ofString(
+              "{\"model\": \"text-davinci-002\", \"prompt\": \"Do a trust your gut tarot reading. " +
+                  "The card representing their feelings toward a particular situation is " + one
+                  + ". The card representing how accurate their perception of the situation is is " + two
+                  + ". The card representing how they can better understand what is going on is " + three
+                  + ". The card representing why they should trust their gut is " + four
+                  + ". The card representing something they should know moving forward is " + five
+                  + ". The reading is:\", \"temperature\": 0.3, \"max_tokens\": 1024}"))
+          .build();
+      String httpResponse = client.makeRequest(request);
+      Gson gson = new Gson();
+      TextCompletion textCompletion = gson.fromJson(httpResponse, TextCompletion.class);
+      return textCompletion.choices[0].text;
+    } catch (Exception e) {
+      return e.getMessage();
+    }
+  }
+
+  /**
    * Makes API call to GPT-3 with the prompt "Do a daily reading..." along with the morning,
    * afternoon, and evening cards displayed on the page.
    * @param morning The name of the card in the "morning" placement.

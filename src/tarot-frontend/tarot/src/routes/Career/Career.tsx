@@ -48,6 +48,17 @@ return (
               with personal growth and nurturing.</CardBody>
           </Card>
         </div>
+        <div className="cards">
+          <Card maxW="sm">
+          <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
+            <CardHeader as={Button} className="ShootingForward" 
+            onClick={() => navigate("/Completionist")} bgColor="#30968c" borderRadius='0'>
+              <Text>Completionist</Text></CardHeader>
+            <CardBody>
+              This spread can guide you toward a sense of fulfillment, empowerment, and readiness for the goals you have in mind. 
+            </CardBody>
+          </Card>
+        </div>
       </div>
     </div>
 )

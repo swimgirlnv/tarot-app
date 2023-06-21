@@ -1,37 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 // @ts-ignore
 import axios from "axios";
 import '../spread.css';
+
+import { Card, CardHeader, CardBody, Button , Image, CardFooter } from '@chakra-ui/react'
+import { ArrowBackIcon } from '@chakra-ui/icons'
+
 import FlipCardPrompt from '../../SiteComponents/FlipCardPrompt';
-import { Button, Card, CardBody, CardHeader , Image } from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons';
+import { Navigate, useNavigate } from 'react-router-dom';
 import TarotCard from '../../SiteComponents/TarotCard';
 
-function ShootingForward(props: any){
+function NeedAdvice(props: any){
   const [loaded, setLoaded] = useState(false);
 
   const [cardIDOne, setCardIDOne] = useState("22")
   const [cardIDTwo, setCardIDTwo] = useState("22")
   const [cardIDThree, setCardIDThree] = useState("22")
-  const [cardIDFour, setCardIDFour] = useState("22")
-  const [cardIDFive, setCardIDFive] = useState("22")
-
 
   const [cardNameOne, setCardNameOne] = useState("")
   const [cardNameTwo, setCardNameTwo] = useState("")
   const [cardNameThree, setCardNameThree] = useState("")
-  const [cardNameFour, setCardNameFour] = useState("")
-  const [cardNameFive, setCardNameFive] = useState("")
 
   const [reading, setReading] = useState("")
-  let navigate = useNavigate();
 
   useEffect(() => { setLoaded(true) })
 
   useEffect(() => {
     if (loaded) {
-        axios.get("/getCards/5")
+        axios.get("/getCards/3")
                 // @ts-ignore
                 .then(response => {
                   console.log("this is response.data for getCards: " + response.data);
@@ -42,8 +38,6 @@ function ShootingForward(props: any){
                   setCardIDOne(response.data[0]);
                   setCardIDTwo(response.data[1]);
                   setCardIDThree(response.data[2]);
-                  setCardIDFour(response.data[3]);
-                  setCardIDFive(response.data[4]);
 
                   console.log(cardIDOne);
                 })
@@ -56,31 +50,33 @@ function ShootingForward(props: any){
 
 const handleReading = () => {
   setReading("Waiting on the spirits...")
-  setDisabled(true)
-axios.get("/getReadingShootingForward/" + cardNameOne + "/" + cardNameTwo + "/"
-+ cardNameThree + "/" + cardNameFour + "/" + cardNameFive)
-        // @ts-ignore
-        .then(response => {
-          console.log("this is response.data for getReading: " + response.data);
-          setReading(response.data);
-        })
-        // @ts-ignore
-        .catch(error => {
-          console.log(error);
-        });
+  setDisabled(true);
+  axios.get("/getReadingLinearDay/" + cardNameOne + "/" + cardNameTwo + "/" + cardNameThree)
+          // @ts-ignore
+          .then(response => {
+            console.log("this is response.data for getReading: " + response.data);
+            setReading(response.data);
+          })
+          // @ts-ignore
+          .catch(error => {
+            console.log(error);
+          }); 
 }
+
 const [disabled, setDisabled] = useState(false);
 
+let navigate = useNavigate();
+
 return (
-    <div className="ShootingForwardPage">
+    <div className="LinearDayPage">
       <div className='hero-container'>
-        <div className='career-hero'>
-        <h1>
-            <Button onClick={() => navigate('/Career')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
-            Shooting Forward
+        <div className='daily-hero'>
+          <h1>
+            <Button onClick={() => navigate('/Daily')} background="transparent" size="m" _hover={{backgroundColor: 'transparent'}}><ArrowBackIcon /></Button>
+            Linear Day
           </h1>
-          <p>With our career shooting forward tarot reading, you'll be able to gain clarity on the steps you need to take to reach 
-            your professional goals and propel your career forward.
+          <p>Whether you're looking to stay on top of your to-do list or need guidance on how to navigate 
+            challenging situations, our linear day tarot reading can help you stay grounded and focused throughout your day.
           </p>
           <FlipCardPrompt />
         </div>
@@ -89,37 +85,23 @@ return (
     <div className="content-box">
       <div>
         <TarotCard
-          header='Dream Job'
+          header=''
           id={cardIDOne}
           setCardName={setCardNameOne}
         />
       </div>
       <div>
-        <TarotCard
-          header='How to Get There'
+      <TarotCard
+          header=''
           id={cardIDTwo}
           setCardName={setCardNameTwo}
         />
       </div>
       <div>
-        <TarotCard
-          header='Qualities You Bring'
+      <TarotCard
+          header=''
           id={cardIDThree}
           setCardName={setCardNameThree}
-        />
-      </div>
-      <div>
-        <TarotCard
-          header='Where to Find Help'
-          id={cardIDFour}
-          setCardName={setCardNameFour}
-        />
-      </div>
-      <div>
-        <TarotCard
-          header='What Needs Attention'
-          id={cardIDFive}
-          setCardName={setCardNameFive}
         />
       </div>
     </div>
@@ -130,7 +112,7 @@ return (
         onClick={handleReading} 
         disabled={disabled}
         style={{cursor: disabled ? 'not-allowed' : 'pointer'}}> Get your reading! </CardHeader>
-        <CardBody placeholder='Waiting on the spirits...'>{reading}</CardBody>
+        <CardBody>{reading}</CardBody>
       </Card>
     </div>
 
@@ -138,4 +120,4 @@ return (
 )
 }
 
-export default ShootingForward;
+export default NeedAdvice;

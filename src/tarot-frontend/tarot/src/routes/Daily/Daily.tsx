@@ -25,6 +25,10 @@ const handleDM = () => {
     navigate("/DreamMessages");
 }
 
+const handleTYG = () => {
+  navigate("/TrustYourGut");
+}
+
 return (
     <div className="DailyPage text-center">
       {/* <h1 className="dp-h1">Daily Tarot Spreads</h1> */}
@@ -62,7 +66,7 @@ return (
         <Card maxW="sm">
             <Image src="https://i.imgur.com/FPnoXqE.png" alt="arcana card stack" className="cards-image" borderTopRadius='10'></Image>
             <CardHeader as={Button} className="LinearDay" 
-             bgColor="#b07721" borderRadius='0'>
+            onClick={handleTYG} bgColor="#b07721" borderRadius='0'>
               <Text>Trust Your Gut</Text></CardHeader>
             <CardBody>If faced with a difficult situation or problem, this spread will help you trust your instincts.</CardBody>
           </Card>
